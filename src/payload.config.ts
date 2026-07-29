@@ -32,6 +32,8 @@ const trustedOrigins = Array.from(
     [
       siteURL,
       'https://procapital-nextjs.vercel.app',
+      'https://procapital.ae',
+      'https://www.procapital.ae',
       'http://localhost:3000',
       process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '',
       process.env.VERCEL_PROJECT_PRODUCTION_URL
