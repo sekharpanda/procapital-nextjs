@@ -1,4 +1,5 @@
-'use client'
+const fs = require('fs')
+const content = `'use client'
 
 import React from 'react'
 
@@ -17,3 +18,6 @@ export default function ViewSiteButton() {
     </a>
   )
 }
+`
+fs.writeFileSync('src/components/admin/ViewSiteButton.tsx', content, 'utf8')
+console.log('rewrote ViewSiteButton')
