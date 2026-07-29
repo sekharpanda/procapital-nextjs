@@ -113,9 +113,9 @@ export const Pages: CollectionConfig = {
               type: 'blocks',
               blocks: pageSectionBlocks,
               admin: {
-                initCollapsed: true,
+                initCollapsed: false,
                 description:
-                  'Hero, Image, Services, Steps, FAQ, Form, Custom HTML, etc. Upload images in Media first, or paste an image URL on the block.',
+                  'Click "+ Add Section" at the bottom to add Hero, Image, Services, FAQ, Form, etc. Open a section to edit text and Change image.',
               },
             },
           ],

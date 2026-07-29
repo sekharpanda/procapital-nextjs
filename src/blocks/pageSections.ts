@@ -2,17 +2,34 @@ import type { Block } from 'payload'
 
 const imageFields = [
   {
-    name: 'image',
-    type: 'upload' as const,
-    relationTo: 'media' as const,
-    admin: { description: 'Upload from Media library' },
-  },
-  {
-    name: 'imageUrl',
-    type: 'text' as const,
-    admin: { description: 'Or paste an external image URL' },
+    type: 'collapsible' as const,
+    label: 'Image',
+    admin: {
+      initCollapsed: false,
+      description: 'Optional. Change the image for this item.',
+    },
+    fields: [
+      {
+        name: 'image',
+        type: 'upload' as const,
+        relationTo: 'media' as const,
+        label: 'Change image',
+        admin: {
+          description: 'Choose from Media library (upload new there first if needed).',
+        },
+      },
+      {
+        name: 'imageUrl',
+        type: 'text' as const,
+        label: 'Or paste image URL',
+        admin: {
+          description: 'Use this if the image is already hosted online.',
+        },
+      },
+    ],
   },
 ]
+
 
 export const HeroBlock: Block = {
   slug: 'hero',
@@ -40,6 +57,12 @@ export const StatsBlock: Block = {
       name: 'items',
       type: 'array',
       minRows: 1,
+      labels: { singular: 'Stat', plural: 'Stats' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Stat" to add another number.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'value', type: 'text', required: true },
         { name: 'label', type: 'text', required: true },
@@ -58,6 +81,12 @@ export const ServicesBlock: Block = {
     {
       name: 'items',
       type: 'array',
+      labels: { singular: 'Service card', plural: 'Service cards' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Service card" below. Each card can have text + image.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'description', type: 'textarea', required: true },
@@ -79,6 +108,12 @@ export const StepsBlock: Block = {
     {
       name: 'items',
       type: 'array',
+      labels: { singular: 'Step', plural: 'Steps' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Step" to add another step.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'description', type: 'textarea', required: true },
@@ -96,6 +131,12 @@ export const FeatureGridBlock: Block = {
     {
       name: 'items',
       type: 'array',
+      labels: { singular: 'Feature', plural: 'Features' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Feature". Each feature can include an image.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'description', type: 'textarea', required: true },
@@ -114,6 +155,12 @@ export const BanksBlock: Block = {
     {
       name: 'items',
       type: 'array',
+      labels: { singular: 'Bank', plural: 'Banks' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Bank". Add a logo image or leave as text name.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'name', type: 'text', required: true },
         ...imageFields,
@@ -131,6 +178,12 @@ export const TestimonialsBlock: Block = {
     {
       name: 'items',
       type: 'array',
+      labels: { singular: 'Testimonial', plural: 'Testimonials' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Testimonial". Optional photo via Change image.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'quote', type: 'textarea', required: true },
         { name: 'author', type: 'text', required: true },
@@ -150,6 +203,12 @@ export const FaqBlock: Block = {
     {
       name: 'items',
       type: 'array',
+      labels: { singular: 'Question', plural: 'Questions' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Question" to add another FAQ.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'question', type: 'text', required: true },
         { name: 'answer', type: 'textarea', required: true },
@@ -218,6 +277,12 @@ export const RelatedLinksBlock: Block = {
     {
       name: 'links',
       type: 'array',
+      labels: { singular: 'Link', plural: 'Links' },
+      admin: {
+        initCollapsed: false,
+        description: 'Click "Add Link" to add another related guide.',
+        components: { RowLabel: '/components/admin/ArrayRowLabel' },
+      },
       fields: [
         { name: 'label', type: 'text', required: true },
         { name: 'url', type: 'text', required: true },
