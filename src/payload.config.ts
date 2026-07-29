@@ -18,6 +18,29 @@ import { Footer } from './globals/Footer'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const siteURL =
+  process.env.PAYLOAD_SERVER_URL ||
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : undefined) ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined) ||
+  'http://localhost:3000'
+
+const trustedOrigins = Array.from(
+  new Set(
+    [
+      siteURL,
+      'https://procapital-nextjs.vercel.app',
+      'http://localhost:3000',
+      process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '',
+      process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : '',
+    ].filter(Boolean),
+  ),
+)
+
 const databaseUrl = process.env.DATABASE_URL || 'file:./procapital-nextjs.db'
 const isPostgres =
   databaseUrl.startsWith('postgres://') || databaseUrl.startsWith('postgresql://')
@@ -49,11 +72,14 @@ if (process.env.BLOB_READ_WRITE_TOKEN) {
 }
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  serverURL: siteURL,
+  // Required on Vercel: without this, cookie auth is rejected and every Save returns 403
+  csrf: trustedOrigins,
+  cors: trustedOrigins,
   admin: {
     user: Users.slug,
     meta: {
-      titleSuffix: ' ? ProCapital CMS',
+      titleSuffix: ' — ProCapital CMS',
       description: 'ProCapital website content management',
     },
     importMap: {

@@ -14,7 +14,12 @@ export const Users: CollectionConfig = {
     defaultColumns: ['email', 'name', 'role', 'approvalStatus', 'updatedAt'],
     description: 'New accounts stay Pending until Super Admin approves them.',
   },
-  auth: true,
+  auth: {
+    cookies: {
+      sameSite: 'Lax',
+      secure: process.env.NODE_ENV === 'production',
+    },
+  },
   hooks: {
     beforeLogin: [
       async ({ user }) => {
