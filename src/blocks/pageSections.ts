@@ -1,0 +1,201 @@
+import type { Block } from 'payload'
+
+export const HeroBlock: Block = {
+  slug: 'hero',
+  labels: { singular: 'Hero', plural: 'Hero sections' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'title', type: 'text', required: true },
+    { name: 'highlight', type: 'text', admin: { description: 'Words inside the title to emphasize' } },
+    { name: 'lede', type: 'textarea' },
+    { name: 'primaryCtaLabel', type: 'text' },
+    { name: 'primaryCtaLink', type: 'text' },
+    { name: 'secondaryCtaLabel', type: 'text' },
+    { name: 'secondaryCtaLink', type: 'text' },
+    { name: 'showCalculator', type: 'checkbox', defaultValue: false },
+    { name: 'showTrustPills', type: 'checkbox', defaultValue: true },
+  ],
+}
+
+export const StatsBlock: Block = {
+  slug: 'stats',
+  labels: { singular: 'Stats bar', plural: 'Stats bars' },
+  fields: [
+    {
+      name: 'items',
+      type: 'array',
+      minRows: 1,
+      fields: [
+        { name: 'value', type: 'text', required: true },
+        { name: 'label', type: 'text', required: true },
+      ],
+    },
+  ],
+}
+
+export const ServicesBlock: Block = {
+  slug: 'services',
+  labels: { singular: 'Services grid', plural: 'Services grids' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'heading', type: 'text' },
+    { name: 'intro', type: 'textarea' },
+    {
+      name: 'items',
+      type: 'array',
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+        { name: 'linkLabel', type: 'text' },
+        { name: 'linkUrl', type: 'text' },
+      ],
+    },
+  ],
+}
+
+export const StepsBlock: Block = {
+  slug: 'steps',
+  labels: { singular: 'Steps', plural: 'Steps sections' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'heading', type: 'text' },
+    { name: 'intro', type: 'textarea' },
+    {
+      name: 'items',
+      type: 'array',
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+      ],
+    },
+  ],
+}
+
+export const FeatureGridBlock: Block = {
+  slug: 'featureGrid',
+  labels: { singular: 'Feature grid', plural: 'Feature grids' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'heading', type: 'text' },
+    {
+      name: 'items',
+      type: 'array',
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+      ],
+    },
+  ],
+}
+
+export const BanksBlock: Block = {
+  slug: 'banks',
+  labels: { singular: 'Banks / logos', plural: 'Banks sections' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'heading', type: 'text' },
+    {
+      name: 'items',
+      type: 'array',
+      fields: [{ name: 'name', type: 'text', required: true }],
+    },
+  ],
+}
+
+export const TestimonialsBlock: Block = {
+  slug: 'testimonials',
+  labels: { singular: 'Testimonials', plural: 'Testimonials' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'heading', type: 'text' },
+    {
+      name: 'items',
+      type: 'array',
+      fields: [
+        { name: 'quote', type: 'textarea', required: true },
+        { name: 'author', type: 'text', required: true },
+        { name: 'role', type: 'text' },
+      ],
+    },
+  ],
+}
+
+export const FaqBlock: Block = {
+  slug: 'faq',
+  labels: { singular: 'FAQ', plural: 'FAQ sections' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'heading', type: 'text' },
+    {
+      name: 'items',
+      type: 'array',
+      fields: [
+        { name: 'question', type: 'text', required: true },
+        { name: 'answer', type: 'textarea', required: true },
+      ],
+    },
+  ],
+}
+
+export const CtaFormBlock: Block = {
+  slug: 'ctaForm',
+  labels: { singular: 'CTA + lead form', plural: 'CTA forms' },
+  fields: [
+    { name: 'eyebrow', type: 'text' },
+    { name: 'heading', type: 'text' },
+    { name: 'body', type: 'textarea' },
+    { name: 'showLeadForm', type: 'checkbox', defaultValue: true },
+  ],
+}
+
+export const RichContentBlock: Block = {
+  slug: 'richContent',
+  labels: { singular: 'Guide content (HTML)', plural: 'Guide content' },
+  fields: [
+    {
+      name: 'html',
+      type: 'textarea',
+      required: true,
+      admin: { rows: 20, description: 'HTML for long-form guide body (exact design markup supported).' },
+    },
+  ],
+}
+
+export const HtmlBlock: Block = {
+  slug: 'customHtml',
+  labels: { singular: 'Custom HTML', plural: 'Custom HTML blocks' },
+  fields: [
+    { name: 'html', type: 'textarea', required: true, admin: { rows: 12 } },
+  ],
+}
+
+export const RelatedLinksBlock: Block = {
+  slug: 'relatedLinks',
+  labels: { singular: 'Related links', plural: 'Related links' },
+  fields: [
+    { name: 'heading', type: 'text', defaultValue: 'Related guides' },
+    {
+      name: 'links',
+      type: 'array',
+      fields: [
+        { name: 'label', type: 'text', required: true },
+        { name: 'url', type: 'text', required: true },
+      ],
+    },
+  ],
+}
+
+export const pageSectionBlocks = [
+  HeroBlock,
+  StatsBlock,
+  ServicesBlock,
+  StepsBlock,
+  FeatureGridBlock,
+  BanksBlock,
+  TestimonialsBlock,
+  FaqBlock,
+  CtaFormBlock,
+  RichContentBlock,
+  HtmlBlock,
+  RelatedLinksBlock,
+]

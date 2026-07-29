@@ -1,0 +1,7 @@
+const fs = require('fs')
+const h = fs.readFileSync('C:/Users/PROWIN/Downloads/procapital-website-deploy (1)/index.html', 'utf8')
+const i = h.indexOf('id="yr"')
+console.log('orig', JSON.stringify(h.slice(i - 20, i + 50)))
+const o = fs.readFileSync('src/content/homeExact.html', 'utf8')
+const j = o.indexOf('id="yr"')
+console.log('exact', JSON.stringify(o.slice(j - 20, j + 50)))

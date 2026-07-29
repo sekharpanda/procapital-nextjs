@@ -1,0 +1,376 @@
+/* =========================================================
+   ProCapital CMS ? Admin theme
+   ========================================================= */
+:root {
+  --pc-teal: #0e4d5c;
+  --pc-teal-deep: #0a3a46;
+  --pc-green: #3e9c6b;
+  --pc-cream: #f5f1e8;
+  --pc-ink: #17242a;
+  --pc-line: #e3ded0;
+  --pc-muted: #5c6b70;
+  --pc-surface: #fcfaf4;
+  --pc-radius: 14px;
+  --pc-shadow: 0 14px 40px -22px rgba(14, 45, 55, 0.35);
+}
+
+/* Page canvas */
+html {
+  background: linear-gradient(180deg, #f7f4ec 0%, #f3f6f5 100%) !important;
+}
+
+.template-default {
+  background: transparent !important;
+}
+
+.template-default__wrap {
+  max-width: 1280px;
+}
+
+/* Sidebar / nav */
+.nav {
+  background: linear-gradient(180deg, #0e4d5c 0%, #0a3a46 100%) !important;
+  border-right: 0 !important;
+  box-shadow: 8px 0 30px -18px rgba(10, 40, 50, 0.55);
+}
+
+.nav a,
+.nav__link,
+.nav .nav-group__toggle {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.nav a:hover,
+.nav__link:hover,
+.nav .nav-group__toggle:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 10px;
+}
+
+.nav__link.active,
+.nav a[aria-current='page'] {
+  background: rgba(62, 156, 107, 0.22) !important;
+  color: #fff !important;
+  border-radius: 10px;
+  box-shadow: inset 3px 0 0 #3e9c6b;
+}
+
+.nav-group__toggle {
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.72rem !important;
+  opacity: 0.9;
+}
+
+.nav__scroll {
+  padding: 10px 12px !important;
+}
+
+/* Brand mark area in nav */
+.nav__header,
+.nav__controls {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Primary actions */
+.btn.btn--style-primary,
+button.btn--style-primary,
+.btn--style-primary {
+  background: linear-gradient(135deg, var(--pc-teal), var(--pc-teal-deep)) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 10px 22px -12px rgba(14, 77, 92, 0.7);
+  font-weight: 650 !important;
+}
+
+.btn.btn--style-primary:hover,
+button.btn--style-primary:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.btn--style-secondary,
+.btn.btn--style-secondary {
+  border-radius: 999px !important;
+  border-color: rgba(14, 77, 92, 0.25) !important;
+}
+
+/* Document header / save bar */
+.doc-controls,
+.collection-edit__header,
+.render-title {
+  background: rgba(252, 250, 244, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--pc-line) !important;
+}
+
+.collection-list__header h1,
+.collection-edit__header h1,
+.doc-header__title,
+.render-title h1 {
+  color: var(--pc-ink) !important;
+  letter-spacing: -0.02em;
+}
+
+/* Cards / field groups / array rows */
+.card,
+.field-type.group,
+.collapsible,
+.array-field__row,
+.blocks-field__block,
+.row-label {
+  border-radius: var(--pc-radius) !important;
+}
+
+.array-field__rows > .array-field__row,
+.blocks-field__blocks > .blocks-field__block,
+.collapsible {
+  background: #fff !important;
+  border: 1px solid #ebe6da !important;
+  box-shadow: var(--pc-shadow) !important;
+  margin-bottom: 14px !important;
+  overflow: hidden;
+}
+
+.array-field__row .collapsible__toggle-wrap,
+.blocks-field__block .collapsible__toggle-wrap {
+  background: linear-gradient(180deg, #fbfaf6, #f4f0e6) !important;
+  border-bottom: 1px solid #ebe6da !important;
+}
+
+.collapsible__toggle {
+  font-weight: 650 !important;
+  color: var(--pc-ink) !important;
+}
+
+/* Inputs */
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='date'],
+textarea,
+.select__control,
+.react-select__control,
+.field-type select {
+  border-radius: 12px !important;
+  border-color: #ddd6c8 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+textarea:focus,
+.select__control--is-focused,
+.react-select__control--is-focused {
+  border-color: var(--pc-teal) !important;
+  box-shadow: 0 0 0 3px rgba(14, 77, 92, 0.12) !important;
+}
+
+.field-label,
+label {
+  color: var(--pc-ink) !important;
+  font-weight: 650 !important;
+}
+
+.field-description {
+  color: var(--pc-muted) !important;
+}
+
+/* Tables / lists */
+.table,
+.collection-list table {
+  background: #fff !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: var(--pc-shadow);
+  border: 1px solid #ebe6da !important;
+}
+
+.table thead th,
+.collection-list th {
+  background: #f4f0e6 !important;
+  color: var(--pc-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem !important;
+}
+
+.table tbody tr:hover td {
+  background: #f8fbf8 !important;
+}
+
+/* Tabs */
+.tabs-field__tabs,
+.tabs-field__tab-button {
+  border-radius: 999px !important;
+}
+
+.tabs-field__tab-button--active {
+  background: var(--pc-teal) !important;
+  color: #fff !important;
+}
+
+/* Pill status / pills */
+.pill,
+.status {
+  border-radius: 999px !important;
+}
+
+/* Login */
+.login,
+.template-minimal {
+  background:
+    radial-gradient(700px 320px at 85% -10%, rgba(62, 156, 107, 0.18), transparent 60%),
+    linear-gradient(160deg, #fcfbf6, #f5f1e8 55%, #eaf0e7) !important;
+}
+
+.login__brand,
+.login form {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid #ebe6da !important;
+  border-radius: 18px !important;
+  box-shadow: var(--pc-shadow) !important;
+  padding: 8px;
+}
+
+/* Dashboard welcome */
+.procapital-dash {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0e4d5c, #0a3a46 55%, #146077);
+  color: #f8faf8;
+  border-radius: 20px;
+  padding: 30px 32px;
+  margin-bottom: 22px;
+  box-shadow: 0 22px 50px -24px rgba(10, 40, 50, 0.55);
+}
+
+.procapital-dash::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: -160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 199, 166, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.procapital-dash h1 {
+  position: relative;
+  margin: 0 0 8px;
+  font-size: 1.65rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.procapital-dash p {
+  position: relative;
+  margin: 0;
+  opacity: 0.92;
+  max-width: 62ch;
+  line-height: 1.55;
+}
+
+.procapital-dash__meta {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.procapital-dash__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.procapital-dash__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.procapital-dash a.card {
+  display: block;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 16px;
+  color: #fff !important;
+  text-decoration: none !important;
+  transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+
+.procapital-dash a.card:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+}
+
+.procapital-dash a.card strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.98rem;
+}
+
+.procapital-dash a.card span {
+  font-size: 0.84rem;
+  opacity: 0.86;
+  line-height: 1.35;
+}
+
+/* Soften Payload default chrome */
+.gutter--left,
+.gutter--right {
+  background: transparent !important;
+}
+
+
+/* ---------------------------------------------------------
+   Fix: Payload nav collapse arrow was overlapping sidebar
+   labels (Content / Site structure) and blocking clicks.
+   Hide it on desktop; keep the mobile header toggler.
+   --------------------------------------------------------- */
+@media (min-width: 769px) {
+  .nav-toggler:not(.app-header__mobile-nav-toggler) {
+    display: none !important;
+  }
+}
+
+/* Extra safety ? if the arrow still renders inside/near the nav,
+   push it out of the way and below the menu labels */
+.nav .nav-toggler,
+.nav > .nav-toggler,
+.template-default .nav-toggler.nav-toggler--is-open:not(.app-header__mobile-nav-toggler) {
+  display: none !important;
+}
+
+/* Give nav groups clear clickable room at the top */
+.nav__scroll {
+  padding-top: 18px !important;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-group,
+.nav__link,
+.nav .nav-group__toggle {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto !important;
+}
+

@@ -1,0 +1,406 @@
+
+
+<!-- ===== EIBOR ticker ===== -->
+<div class="ticker" aria-label="Current EIBOR rates">
+  <div class="ticker-track">
+    <span class="dot"></span><span>EIBOR &nbsp;<b>1M 3.65%</b></span>
+    <span class="dot"></span><span>EIBOR &nbsp;<b>3M 3.66%</b></span>
+    <span class="dot"></span><span>EIBOR &nbsp;<b>6M 3.71%</b></span>
+    <span class="dot"></span><span>EIBOR &nbsp;<b>1Y 3.91%</b></span>
+    <span class="dot"></span><span>Best 3-yr fixed from &nbsp;<b>3.95% p.a.</b></span>
+    <span class="dot"></span><span>Non-resident from &nbsp;<b>5.49% p.a.</b></span>
+    <!-- duplicate for seamless loop -->
+    <span class="dot"></span><span>EIBOR &nbsp;<b>1M 3.65%</b></span>
+    <span class="dot"></span><span>EIBOR &nbsp;<b>3M 3.66%</b></span>
+    <span class="dot"></span><span>EIBOR &nbsp;<b>6M 3.71%</b></span>
+    <span class="dot"></span><span>EIBOR &nbsp;<b>1Y 3.91%</b></span>
+    <span class="dot"></span><span>Best 3-yr fixed from &nbsp;<b>3.95% p.a.</b></span>
+    <span class="dot"></span><span>Non-resident from &nbsp;<b>5.49% p.a.</b></span>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><img src="/logo.png" alt="ProCapital — Dubai mortgage advisors"></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#why">Why us</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-mobile-cta">Get pre-approved →</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+971588103755" class="nav-phone">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +971 58 810 3755
+      </a>
+      <a href="#contact" class="btn btn-primary">Get pre-approved</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Independent mortgage advisory · Dubai</span>
+      <h1>The <span class="accent">right mortgage</span>, without the guesswork.</h1>
+      <p class="lede">We compare rates across 25+ UAE banks, handle the paperwork end-to-end, and get you pre-approved fast — so you buy your Dubai home with confidence.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get pre-approved free
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#calc" class="btn btn-ghost">Try the calculator</a>
+      </div>
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span class="score">4.9/5</span>
+        <span class="txt">from clients across Dubai · independent &amp; unbiased</span>
+      </div>
+      <div class="trust-pills">
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>No cost to you</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Residents &amp; non-residents</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Whole-of-market advice</span>
+      </div>
+    </div>
+
+    <!-- Signature: live calculator in the hero -->
+    <div class="calc reveal" id="calc">
+      <h3>Mortgage calculator</h3>
+      <p class="sub">Estimate your monthly repayment in seconds.</p>
+
+      <div class="field">
+        <div class="field-top"><label for="price">Property price</label><span class="val" id="priceVal">AED 2,000,000</span></div>
+        <input type="range" id="price" min="500000" max="20000000" step="50000" value="2000000">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="down">Down payment</label><span class="val" id="downVal">20% · AED 400,000</span></div>
+        <input type="range" id="down" min="15" max="50" step="1" value="20">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="rate">Interest rate</label><span class="val" id="rateVal">3.95%</span></div>
+        <input type="range" id="rate" min="2.5" max="7" step="0.05" value="3.95">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="years">Loan term</label><span class="val" id="yearsVal">25 years</span></div>
+        <input type="range" id="years" min="5" max="25" step="1" value="25">
+      </div>
+
+      <div class="calc-result">
+        <div class="label">Estimated monthly payment</div>
+        <div class="amount" id="monthly">AED 8,378</div>
+        <div class="note" id="loanNote">Loan amount AED 1,600,000 over 25 years</div>
+      </div>
+      <a href="#contact" class="btn btn-gold">Get this rate confirmed →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust bar ===== -->
+<section class="trustbar">
+  <div class="wrap trust-grid">
+    <div class="reveal"><div class="num">25+</div><div class="cap">UAE banks compared</div></div>
+    <div class="reveal"><div class="num">AED&nbsp;1B+</div><div class="cap">In mortgages arranged</div></div>
+    <div class="reveal"><div class="num">3–5 days</div><div class="cap">Typical pre-approval</div></div>
+    <div class="reveal"><div class="num">100%</div><div class="cap">Independent advice</div></div>
+  </div>
+</section>
+
+<!-- ===== Services ===== -->
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>Mortgage solutions for every buyer</h2>
+      <p>Whatever your situation, we find the bank and the rate that fit it best.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5 12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div>
+        <h3>Resident mortgages</h3>
+        <p>Buying your home in Dubai? We secure the best home-loan rate for UAE residents and manage the process start to finish. <a href="mortgage-for-residents-dubai.html" style="color:var(--maroon);font-weight:600">Read our resident mortgage guide →</a></p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div>
+        <h3>Non-resident mortgages</h3>
+        <p>Investing from overseas? We work with the banks most open to non-residents, with low-documentation options and clear guidance.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <h3>Refinance &amp; equity release</h3>
+        <p>Paying too much, or want to unlock cash? We move your mortgage to a better rate, or release equity from a property you already own. <a href="equity-release-dubai.html" style="color:var(--maroon);font-weight:600">Read our equity release guide →</a></p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v6"/></svg></div>
+        <h3>Off-plan &amp; handover finance</h3>
+        <p>Buying off-plan? We arrange staged financing for under-construction property and cover your final handover payment. <a href="off-plan-mortgage-dubai.html" style="color:var(--maroon);font-weight:600">Read our off-plan mortgage guide →</a></p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Commercial finance</h3>
+        <p>Financing an office, retail unit or investment portfolio? We structure commercial mortgages tailored to your goals.</p>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg></div>
+        <h3>Free eligibility check</h3>
+        <p>Not sure where you stand? Get a clear, obligation-free picture of how much you can borrow across leading banks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How it works ===== -->
+<section class="section how" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Simple, transparent, guided</span>
+      <h2>Your mortgage in four steps</h2>
+      <p>No jargon, no chasing banks. We do the heavy lifting and keep you informed at every stage.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Tell us your goals</h3><p>Share your budget and plans. We assess your eligibility and affordability in one short conversation.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>Compare your options</h3><p>We present the best rates from 25+ UAE banks side by side — in plain terms — and shortlist the right fit.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Get pre-approved</h3><p>We prepare and package your file so it's approved first time, and hand you a clear pre-approval.</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>Move in</h3><p>We coordinate with the bank and conveyancer through to completion, so you get the keys stress-free.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why us ===== -->
+<section class="section why" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why ProCapital</span>
+      <h2>Advice you can actually trust</h2>
+      <p>We work for you, not the bank. That single fact changes everything about the advice you get.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h3>Independent &amp; unbiased</h3><p>We compare the whole market and recommend what's right for you — never steered by a single lender.</p></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h3>End-to-end handling</h3><p>Documents, bank liaison, valuations and conveyancing coordination — all managed for you.</p></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h3>Real market access</h3><p>Direct relationships with 25+ UAE banks mean sharper rates and options you won't find alone.</p></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><h3>A dedicated advisor</h3><p>One expert owns your case from first call to final approval — no call centres, no being passed around.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Banks ===== -->
+<section class="section banks">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our lending partners</span>
+      <h2>We compare 25+ UAE banks</h2>
+      <p>One conversation gives you access to the whole market — instead of queuing at each bank yourself.</p>
+    </div>
+    <div class="bank-strip reveal">
+      <span class="bank-chip">Emirates NBD</span>
+      <span class="bank-chip">FAB</span>
+      <span class="bank-chip">ADCB</span>
+      <span class="bank-chip">Dubai Islamic Bank</span>
+      <span class="bank-chip">Mashreq</span>
+      <span class="bank-chip">HSBC</span>
+      <span class="bank-chip">Standard Chartered</span>
+      <span class="bank-chip">ADIB</span>
+      <span class="bank-chip">CBD</span>
+      <span class="bank-chip">RAKBANK</span>
+      <span class="bank-chip">Emirates Islamic</span>
+      <span class="bank-chip">+ many more</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Testimonials ===== -->
+<section class="section testi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Client stories</span>
+      <h2>Buyers who trusted us</h2>
+      <p>Real outcomes from residents, investors and first-time buyers across Dubai.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="qm">"</div>
+        <p>They compared everything for me and found a rate almost a full percent below what my own bank offered. The pre-approval came through in days.</p>
+        <div class="testi-who"><div class="avatar">R</div><div><div class="nm">Rohan M.</div><div class="rl">First-time buyer · JVC</div></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="qm">"</div>
+        <p>As a non-resident I thought a Dubai mortgage would be impossible. ProCapital knew exactly which banks to approach and handled all the paperwork.</p>
+        <div class="testi-who"><div class="avatar">S</div><div><div class="nm">Sarah L.</div><div class="rl">Overseas investor · UK</div></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="qm">"</div>
+        <p>Refinanced my apartment and I'm now saving thousands a year. Clear advice, no pressure, and they chased the bank so I didn't have to.</p>
+        <div class="testi-who"><div class="avatar">A</div><div><div class="nm">Ahmed K.</div><div class="rl">Refinance · Downtown Dubai</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Good to know</span>
+      <h2>Frequently asked questions</h2>
+      <p>Straight answers to the questions Dubai buyers ask us most.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">Can non-residents get a mortgage in the UAE?<span class="ic">+</span></button>
+        <div class="faq-a"><p>Yes. Non-residents can secure a mortgage in Dubai and across the UAE. Most banks require six months of bank statements, proof of income and a passport copy. We work with the banks most favourable to non-resident applicants and guide you through every requirement.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How much deposit do I need?<span class="ic">+</span></button>
+        <div class="faq-a"><p>UAE residents typically need a 20% down payment for a first property under AED 5 million. Non-residents usually need 20–25%. We help you plan for the deposit plus associated fees before you commit, so there are no surprises.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Does ProCapital charge for its service?<span class="ic">+</span></button>
+        <div class="faq-a"><p>Your initial consultation and mortgage comparison are free. We're paid by the bank on completion, and we always disclose any fees upfront — our advice stays independent and in your interest.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">How long does pre-approval take?<span class="ic">+</span></button>
+        <div class="faq-a"><p>With complete documents, pre-approval typically takes 3–5 working days. We prepare and package your file so it's approved first time, without back-and-forth with the bank.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">I'm self-employed — can I still get a mortgage?<span class="ic">+</span></button>
+        <div class="faq-a"><p>Absolutely. Banks differ in how they assess self-employed applicants. We know which lenders view self-employed income favourably and will position your application with the right one.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Can I release equity from my property?<span class="ic">+</span></button>
+        <div class="faq-a"><p>Yes. If you own a Dubai property with equity built up, you can refinance to release a lump sum of cash against its value — for renovations, another investment, or other needs. We compare equity-release and cash-out options across UAE banks to find the sharpest rate for your situation, and handle the whole process for you.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Lead / CTA ===== -->
+<section class="section cta" id="contact">
+  <div class="wrap cta-grid">
+    <div class="cta-copy reveal">
+      <span class="eyebrow" style="color:var(--gold-soft)">Free · No obligation</span>
+      <h2>Let's find your best mortgage</h2>
+      <p>Share a few details and a ProCapital advisor will call you back with a clear, personalised picture of your options.</p>
+      <ul class="cta-list">
+        <li><span class="chk">✓</span> A dedicated advisor, start to finish</li>
+        <li><span class="chk">✓</span> Rates compared across 25+ banks</li>
+        <li><span class="chk">✓</span> No cost, no pressure, no jargon</li>
+      </ul>
+      <div style="margin-top:26px">
+        <a href="https://wa.me/971588103755?text=Hi%20ProCapital%2C%20I%27d%20like%20advice%20on%20getting%20a%20mortgage%20in%20Dubai." class="btn btn-wa" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7 1-.9 1.1-.1.2-.3.2-.6.1-1.7-.9-2.8-1.6-4-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.7.7-1 1.6-1 2.7 0 1.7 1.2 3.3 1.4 3.5.2.2 2.5 3.8 6 5.2 2.2.9 3 .9 4.1.8.6-.1 1.7-.7 2-1.4.2-.6.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="lead-card reveal">
+      <h3>Request a free callback</h3>
+      <p class="sub">We'll get back to you within one business hour.</p>
+      <form id="leadForm" novalidate>
+        <div class="form-row">
+          <label for="lname">Full name</label>
+          <input id="lname" name="name" type="text" required placeholder="Your name">
+        </div>
+        <div class="form-row">
+          <label for="lphone">Mobile number</label>
+          <div class="phone-row">
+            <select id="lcc" name="countryCode" aria-label="Country code">
+              <option value="+971" selected>🇦🇪 +971</option>
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+966">🇸🇦 +966</option>
+              <option value="+974">🇶🇦 +974</option>
+              <option value="+965">🇰🇼 +965</option>
+            </select>
+            <input id="lphone" name="phone" type="tel" required placeholder="Mobile number" inputmode="numeric">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="lemail">Email</label>
+          <input id="lemail" name="email" type="email" required placeholder="you@email.com">
+        </div>
+        <div class="form-row">
+          <label for="lservice">What do you need?</label>
+          <select id="lservice" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>New mortgage — resident</option>
+            <option>New mortgage — non-resident</option>
+            <option>Refinance / buyout</option>
+            <option>Handover finance</option>
+            <option>Commercial finance</option>
+            <option>Just checking my eligibility</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Get my free callback</button>
+        <p class="form-msg" id="formMsg"></p>
+        <p class="consent">By submitting, you agree to be contacted by ProCapital about your enquiry.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><img src="/logo.png" alt="ProCapital"></div>
+        <p>Independent mortgage advisory in Dubai. We compare the whole market to secure the right home loan for you — with clear, unbiased advice at every step.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Resident mortgages</a>
+        <a href="#services">Non-resident mortgages</a>
+        <a href="#services">Refinance &amp; equity release</a>
+        <a href="#services">Commercial finance</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#how">How it works</a>
+        <a href="#why">Why ProCapital</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact us</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get in touch</h4>
+        <a href="tel:+971588103755">+971 58 810 3755</a>
+        <a href="mailto:info@procapital.ae">info@procapital.ae</a>
+        <a href="https://wa.me/971588103755" target="_blank" rel="noopener">WhatsApp us</a>
+        <p>Dubai, United Arab Emirates</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> ProCapital. All rights reserved.</span>
+      <span>procapital.ae</span>
+    </div>
+    <p class="disclaimer">ProCapital provides mortgage advisory and brokerage services. Rates, EIBOR figures and repayment estimates shown are indicative only, subject to change and to lender approval, and do not constitute a formal offer of finance. Your property may be at risk if you do not keep up repayments on your mortgage. All applications are subject to the terms and eligibility criteria of the relevant lender.</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/971588103755?text=Hi%20ProCapital%2C%20I%27d%20like%20advice%20on%20getting%20a%20mortgage%20in%20Dubai." class="fab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.6.2-.2.3-.7 1-.9 1.1-.1.2-.3.2-.6.1-1.7-.9-2.8-1.6-4-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.7.7-1 1.6-1 2.7 0 1.7 1.2 3.3 1.4 3.5.2.2 2.5 3.8 6 5.2 2.2.9 3 .9 4.1.8.6-.1 1.7-.7 2-1.4.2-.6.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+</a>
+
+
+
+<!-- Fonts loaded last so they never block first paint -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
