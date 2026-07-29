@@ -16,7 +16,7 @@ export const Pages: CollectionConfig = {
     defaultColumns: ['title', 'slug', 'template', 'status', 'updatedAt'],
     group: 'Content',
     description:
-      'Edit like WordPress: open a page → Sections tab → Add Section blocks (Hero, Image, Services, FAQ…). Reorder blocks, then Save. Changes appear on the live site.',
+                  'Add: click "+ Add Section". Edit text/images inside. Remove: click the three-dots (⋮) on the right of a section → Remove, then Save.',
     livePreview: {
       url: ({ data }) => {
         const slug = data?.slug
@@ -115,7 +115,7 @@ export const Pages: CollectionConfig = {
               admin: {
                 initCollapsed: false,
                 description:
-                  'Click "+ Add Section" at the bottom to add Hero, Image, Services, FAQ, Form, etc. Open a section to edit text and Change image.',
+                  'Add: click "+ Add Section". Edit text/images inside. Remove: click the three-dots menu on the right of a section → Remove, then Save.',
               },
             },
           ],

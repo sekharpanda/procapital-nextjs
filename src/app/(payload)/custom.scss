@@ -131,7 +131,7 @@ button.btn--style-primary:hover {
   border: 1px solid #ebe6da !important;
   box-shadow: var(--pc-shadow) !important;
   margin-bottom: 14px !important;
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 .array-field__row .collapsible__toggle-wrap,
@@ -422,4 +422,66 @@ label {
 
 .field-type.collapsible > .collapsible {
   margin-top: 8px !important;
+}
+
+
+/* ---------------------------------------------------------
+   Make Remove obvious on sections & items (three-dots menu)
+   --------------------------------------------------------- */
+.array-actions {
+  position: relative !important;
+  z-index: 30 !important;
+  margin-left: auto !important;
+}
+
+.array-actions__button {
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid #d9d2c3 !important;
+  background: #fff !important;
+  box-shadow: 0 2px 8px rgba(14, 45, 55, 0.08) !important;
+}
+
+.array-actions__button:hover {
+  border-color: var(--pc-teal) !important;
+  background: #f4faf7 !important;
+}
+
+.popup--active,
+.popup__content {
+  z-index: 80 !important;
+  overflow: visible !important;
+}
+
+.array-actions__actions {
+  min-width: 180px !important;
+  padding: 6px !important;
+}
+
+.array-actions__action {
+  width: 100% !important;
+  padding: 10px 12px !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}
+
+.array-actions__remove {
+  color: #b42318 !important;
+  background: #fff5f4 !important;
+  font-weight: 750 !important;
+}
+
+.array-actions__remove:hover {
+  background: #fee4e2 !important;
+  color: #912018 !important;
+}
+
+.blocks-field__block-header,
+.array-field__row .collapsible__header,
+.collapsible__header,
+.collapsible {
+  overflow: visible !important;
 }
