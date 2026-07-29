@@ -1,28 +1,29 @@
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
-import fs from 'fs'
-import path from 'path'
 import type { Metadata } from 'next'
-import ExactHomeClient from '@/components/ExactHomeClient'
 import { SiteChrome } from '@/components/cms/SiteChrome'
-import { stripExactChrome } from '@/lib/menu'
+import { PageSections } from '@/components/cms/PageSections'
+import { getPageBySlug } from '@/lib/payload'
 import '@/css/home.css'
 
-export const metadata: Metadata = {
-  title: 'Mortgage Broker in Dubai | Home Loans & Equity Release',
-  description:
-    'Independent mortgage broker in Dubai. Compare home loan & equity release rates from 25+ UAE banks and get pre-approved in days. Free, unbiased advice.',
-  alternates: { canonical: 'https://procapital.ae/' },
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageBySlug('home')
+  return {
+    title: page?.metaTitle || 'Mortgage Broker in Dubai | Home Loans & Equity Release',
+    description:
+      page?.metaDescription ||
+      'Independent mortgage broker in Dubai. Compare home loan & equity release rates from 25+ UAE banks and get pre-approved in days. Free, unbiased advice.',
+    alternates: { canonical: page?.canonicalPath || 'https://procapital.ae/' },
+  }
 }
 
 export default async function HomePage() {
-  const dir = path.join(process.cwd(), 'src', 'content')
-  const raw = fs.readFileSync(path.join(dir, 'homeExact.html'), 'utf8')
-  const html = stripExactChrome(raw)
-  const script = fs.readFileSync(path.join(dir, 'homeExact.js'), 'utf8')
+  const page = await getPageBySlug('home')
+  const sections = (page?.sections as { blockType: string }[] | null) || []
+
   return (
     <SiteChrome variant="home">
-      <ExactHomeClient html={html} script={script} />
+      <PageSections sections={sections} variant="home" />
     </SiteChrome>
   )
 }

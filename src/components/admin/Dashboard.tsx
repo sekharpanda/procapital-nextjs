@@ -7,8 +7,8 @@ export default function Dashboard() {
     <div className="procapital-dash">
       <h1>ProCapital control center</h1>
       <p>
-        Edit menus, header, footer, pages and media here. Changes go live on the website after you
-        save ? use Live Preview on pages when available.
+        Edit pages with WordPress-style section blocks (Hero, Image, Services, FAQ…). Upload images
+        in Media, place them in blocks, Save — the live site updates.
       </p>
       <div className="procapital-dash__meta">
         <span>Secure team access</span>
@@ -18,7 +18,7 @@ export default function Dashboard() {
       <div className="procapital-dash__grid">
         <a className="card" href="/admin/collections/pages">
           <strong>Pages & sections</strong>
-          <span>Add pages, reorder blocks, edit SEO</span>
+          <span>WordPress-style blocks: text, images, reorder</span>
         </a>
         <a className="card" href="/admin/collections/menus">
           <strong>Menus</strong>

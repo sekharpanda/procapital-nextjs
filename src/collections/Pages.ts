@@ -1,7 +1,13 @@
 import type { CollectionConfig } from 'payload'
 import { pageSectionBlocks } from '../blocks/pageSections'
 
-const isLoggedIn = ({ req: { user } }: { req: { user: unknown } }) => Boolean(user)
+type U = { role?: string; approvalStatus?: string } | null
+const isApproved = (user: U) => Boolean(user) && user?.approvalStatus === 'approved'
+const isAdminLike = (user: U) =>
+  isApproved(user) && (user?.role === 'admin' || user?.role === 'superadmin')
+const canEditSite = (user: U) =>
+  isApproved(user) &&
+  (user?.role === 'admin' || user?.role === 'superadmin' || user?.role === 'editor')
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -9,6 +15,8 @@ export const Pages: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'template', 'status', 'updatedAt'],
     group: 'Content',
+    description:
+      'Edit like WordPress: open a page → Sections tab → Add Section blocks (Hero, Image, Services, FAQ…). Reorder blocks, then Save. Changes appear on the live site.',
     livePreview: {
       url: ({ data }) => {
         const slug = data?.slug
@@ -19,9 +27,9 @@ export const Pages: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: isLoggedIn,
-    update: isLoggedIn,
-    delete: ({ req: { user } }) => ((user as { role?: string } | null)?.role === 'admin' || (user as { role?: string } | null)?.role === 'superadmin'),
+    create: ({ req: { user } }) => canEditSite(user as U),
+    update: ({ req: { user } }) => canEditSite(user as U),
+    delete: ({ req: { user } }) => isAdminLike(user as U),
   },
   fields: [
     {
@@ -60,12 +68,15 @@ export const Pages: CollectionConfig = {
           type: 'select',
           required: true,
           defaultValue: 'builder',
-          admin: { width: '33%' },
           options: [
-            { label: 'Section builder', value: 'builder' },
-            { label: 'Homepage (legacy exact)', value: 'home' },
-            { label: 'Guide (legacy exact)', value: 'guide' },
+            { label: 'Section builder (recommended)', value: 'builder' },
+            { label: 'Homepage layout hint', value: 'home' },
+            { label: 'Guide layout hint', value: 'guide' },
           ],
+          admin: {
+            width: '33%',
+            description: 'Sections tab controls live page content (WordPress-style blocks).',
+          },
         },
         {
           name: 'status',
@@ -94,7 +105,8 @@ export const Pages: CollectionConfig = {
       tabs: [
         {
           label: 'Sections',
-          description: 'Add, remove and reorder page sections.',
+          description:
+            'WordPress-style blocks: Add Section → edit text/images → drag to reorder → Save. The live site updates immediately.',
           fields: [
             {
               name: 'sections',
@@ -102,7 +114,8 @@ export const Pages: CollectionConfig = {
               blocks: pageSectionBlocks,
               admin: {
                 initCollapsed: true,
-                description: 'Build the page visually ? hero, services, FAQ, custom HTML, and more.',
+                description:
+                  'Hero, Image, Services, Steps, FAQ, Form, Custom HTML, etc. Upload images in Media first, or paste an image URL on the block.',
               },
             },
           ],

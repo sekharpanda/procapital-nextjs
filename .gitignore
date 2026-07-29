@@ -54,3 +54,8 @@ node_modules/
 src/.superadmin-temp-password.txt
 *.db
 *.db-*
+
+.vercel
+
+.vercel-payload-secret.tmp
+

@@ -130,6 +130,8 @@ export interface UserAuthOperations {
   };
 }
 /**
+ * Edit like WordPress: open a page → Sections tab → Add Section blocks (Hero, Image, Services, FAQ…). Reorder blocks, then Save. Changes appear on the live site.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
  */
@@ -140,6 +142,9 @@ export interface Page {
    * URL path. Use "home" for homepage.
    */
   slug: string;
+  /**
+   * Sections tab controls live page content (WordPress-style blocks).
+   */
   template: 'builder' | 'home' | 'guide';
   status: 'published' | 'draft';
   /**
@@ -147,7 +152,7 @@ export interface Page {
    */
   useSiteChrome?: boolean | null;
   /**
-   * Build the page visually ? hero, services, FAQ, custom HTML, and more.
+   * Hero, Image, Services, Steps, FAQ, Form, Custom HTML, etc. Upload images in Media first, or paste an image URL on the block.
    */
   sections?:
     | (
@@ -165,9 +170,33 @@ export interface Page {
             secondaryCtaLink?: string | null;
             showCalculator?: boolean | null;
             showTrustPills?: boolean | null;
+            /**
+             * Upload from Media library
+             */
+            image?: (number | null) | Media;
+            /**
+             * Or paste an external image URL
+             */
+            imageUrl?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero';
+          }
+        | {
+            /**
+             * Upload from Media library
+             */
+            image?: (number | null) | Media;
+            /**
+             * Or paste an external image URL
+             */
+            imageUrl?: string | null;
+            alt?: string | null;
+            caption?: string | null;
+            size?: ('full' | 'wide' | 'medium') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'image';
           }
         | {
             items?:
@@ -191,6 +220,14 @@ export interface Page {
                   description: string;
                   linkLabel?: string | null;
                   linkUrl?: string | null;
+                  /**
+                   * Upload from Media library
+                   */
+                  image?: (number | null) | Media;
+                  /**
+                   * Or paste an external image URL
+                   */
+                  imageUrl?: string | null;
                   id?: string | null;
                 }[]
               | null;
@@ -220,6 +257,14 @@ export interface Page {
               | {
                   title: string;
                   description: string;
+                  /**
+                   * Upload from Media library
+                   */
+                  image?: (number | null) | Media;
+                  /**
+                   * Or paste an external image URL
+                   */
+                  imageUrl?: string | null;
                   id?: string | null;
                 }[]
               | null;
@@ -233,6 +278,14 @@ export interface Page {
             items?:
               | {
                   name: string;
+                  /**
+                   * Upload from Media library
+                   */
+                  image?: (number | null) | Media;
+                  /**
+                   * Or paste an external image URL
+                   */
+                  imageUrl?: string | null;
                   id?: string | null;
                 }[]
               | null;
@@ -248,6 +301,14 @@ export interface Page {
                   quote: string;
                   author: string;
                   role?: string | null;
+                  /**
+                   * Upload from Media library
+                   */
+                  image?: (number | null) | Media;
+                  /**
+                   * Or paste an external image URL
+                   */
+                  imageUrl?: string | null;
                   id?: string | null;
                 }[]
               | null;
@@ -280,7 +341,7 @@ export interface Page {
           }
         | {
             /**
-             * HTML for long-form guide body (exact design markup supported).
+             * HTML for long-form guide body.
              */
             html: string;
             id?: string | null;
@@ -336,6 +397,27 @@ export interface Page {
   createdAt: string;
 }
 /**
+ * Upload images here, then pick them inside page Section blocks (Image, Hero, Services…).
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
  * Build header, footer and extra navigation menus.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -373,27 +455,6 @@ export interface Menu {
     | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * Logos, OG images, icons and uploads.
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * New accounts stay Pending until Super Admin approves them.
@@ -541,6 +602,19 @@ export interface PagesSelect<T extends boolean = true> {
               secondaryCtaLink?: T;
               showCalculator?: T;
               showTrustPills?: T;
+              image?: T;
+              imageUrl?: T;
+              id?: T;
+              blockName?: T;
+            };
+        image?:
+          | T
+          | {
+              image?: T;
+              imageUrl?: T;
+              alt?: T;
+              caption?: T;
+              size?: T;
               id?: T;
               blockName?: T;
             };
@@ -570,6 +644,8 @@ export interface PagesSelect<T extends boolean = true> {
                     description?: T;
                     linkLabel?: T;
                     linkUrl?: T;
+                    image?: T;
+                    imageUrl?: T;
                     id?: T;
                   };
               id?: T;
@@ -601,6 +677,8 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     title?: T;
                     description?: T;
+                    image?: T;
+                    imageUrl?: T;
                     id?: T;
                   };
               id?: T;
@@ -615,6 +693,8 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     name?: T;
+                    image?: T;
+                    imageUrl?: T;
                     id?: T;
                   };
               id?: T;
@@ -631,6 +711,8 @@ export interface PagesSelect<T extends boolean = true> {
                     quote?: T;
                     author?: T;
                     role?: T;
+                    image?: T;
+                    imageUrl?: T;
                     id?: T;
                   };
               id?: T;

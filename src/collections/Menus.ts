@@ -1,6 +1,12 @@
 import type { CollectionConfig } from 'payload'
 
-const isLoggedIn = ({ req: { user } }: { req: { user: unknown } }) => Boolean(user)
+type U = { role?: string; approvalStatus?: string } | null
+const isApproved = (user: U) => Boolean(user) && user?.approvalStatus === 'approved'
+const isAdminLike = (user: U) =>
+  isApproved(user) && (user?.role === 'admin' || user?.role === 'superadmin')
+const canEditSite = (user: U) =>
+  isApproved(user) &&
+  (user?.role === 'admin' || user?.role === 'superadmin' || user?.role === 'editor')
 
 const linkFields = [
   { name: 'label', type: 'text' as const, required: true },
@@ -48,9 +54,9 @@ export const Menus: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: isLoggedIn,
-    update: isLoggedIn,
-    delete: ({ req: { user } }) => ((user as { role?: string } | null)?.role === 'admin' || (user as { role?: string } | null)?.role === 'superadmin'),
+    create: ({ req: { user } }) => canEditSite(user as U),
+    update: ({ req: { user } }) => canEditSite(user as U),
+    delete: ({ req: { user } }) => isAdminLike(user as U),
   },
   fields: [
     { name: 'name', type: 'text', required: true },

@@ -10,7 +10,10 @@ const articles = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'content.json'), 'utf8'),
 ) as { equity: string; residents: string; offplan: string }
 
-async function upsertPage(payload: Awaited<ReturnType<typeof getPayload>>, data: Record<string, unknown>) {
+async function upsertPage(
+  payload: Awaited<ReturnType<typeof getPayload>>,
+  data: Record<string, unknown>,
+) {
   const existing = await payload.find({
     collection: 'pages',
     where: { slug: { equals: data.slug as string } },
@@ -78,200 +81,286 @@ async function run() {
   await upsertPage(payload, {
     title: 'Home',
     slug: 'home',
-    template: 'home',
+    template: 'builder',
     status: 'published',
+    useSiteChrome: true,
     metaTitle: 'Mortgage Broker in Dubai | Home Loans & Equity Release',
     metaDescription:
       'Independent mortgage broker in Dubai. Compare home loan & equity release rates from 25+ UAE banks and get pre-approved in days. Free, unbiased advice.',
     metaKeywords: 'mortgage broker Dubai, home loan UAE, equity release Dubai, ProCapital',
     canonicalPath: '/',
-    heroEyebrow: 'Independent mortgage advisory · Dubai',
-    heroTitle: 'The right mortgage, without the guesswork.',
-    heroHighlight: 'right mortgage',
-    heroLede:
-      'We compare rates across 25+ UAE banks, handle the paperwork end-to-end, and get you pre-approved fast — so you buy your Dubai home with confidence.',
-    services: [
+    sections: [
       {
-        title: 'Resident mortgages',
-        description:
-          'Buying your home in Dubai? We secure the best home-loan rate for UAE residents and package a clean application.',
-        linkLabel: 'Read our resident mortgage guide →',
-        linkSlug: 'mortgage-for-residents-dubai',
+        blockType: 'hero',
+        eyebrow: 'Independent mortgage advisory · Dubai',
+        title: 'The right mortgage, without the guesswork.',
+        highlight: 'right mortgage',
+        lede: 'We compare rates across 25+ UAE banks, handle the paperwork end-to-end, and get you pre-approved fast — so you buy your Dubai home with confidence.',
+        primaryCtaLabel: 'Get pre-approved free',
+        primaryCtaLink: '#contact',
+        secondaryCtaLabel: 'Try the calculator',
+        secondaryCtaLink: '#calc',
+        showCalculator: true,
+        showTrustPills: true,
       },
       {
-        title: 'Off-plan & handover',
-        description:
-          'Buying off-plan? We arrange staged financing for under-construction projects and bridge you to handover.',
-        linkLabel: 'Read our off-plan mortgage guide →',
-        linkSlug: 'off-plan-mortgage-dubai',
+        blockType: 'services',
+        eyebrow: 'What we do',
+        heading: 'Mortgage solutions for every buyer',
+        intro:
+          'Whether you live in Dubai or invest from overseas, we package the right bank for you.',
+        items: [
+          {
+            title: 'Resident mortgages',
+            description:
+              'Buying your home in Dubai? We secure the best home-loan rate for UAE residents and package a clean application.',
+            linkLabel: 'Read our resident mortgage guide →',
+            linkUrl: '/mortgage-for-residents-dubai',
+          },
+          {
+            title: 'Off-plan & handover',
+            description:
+              'Buying off-plan? We arrange staged financing for under-construction projects and bridge you to handover.',
+            linkLabel: 'Read our off-plan mortgage guide →',
+            linkUrl: '/off-plan-mortgage-dubai',
+          },
+          {
+            title: 'Refinance & equity release',
+            description:
+              'Paying too much, or want to unlock cash? We move your mortgage to a better rate — or release equity without selling.',
+            linkLabel: 'Read our equity release guide →',
+            linkUrl: '/equity-release-dubai',
+          },
+        ],
       },
       {
-        title: 'Refinance & equity release',
-        description:
-          'Paying too much, or want to unlock cash? We move your mortgage to a better rate — or release equity without selling.',
-        linkLabel: 'Read our equity release guide →',
-        linkSlug: 'equity-release-dubai',
-      },
-    ],
-    howSteps: [
-      { title: 'Tell us your plan', description: 'Share income, residency and property goals on a free call.' },
-      { title: 'We compare banks', description: 'We shortlist lenders that match your profile — residents, non-residents and self-employed.' },
-      { title: 'We handle the file', description: 'Documents, packaging and follow-ups — so approvals happen first time.' },
-      { title: 'You get approved', description: 'Pre-approval in days, then we stay with you through offer and drawdown.' },
-    ],
-    whyPoints: [
-      { title: 'Whole-of-market', description: 'We are not tied to one bank — your rate comes from comparing 25+ lenders.' },
-      { title: 'Free to you', description: 'Advice and comparison are free. We are paid by the bank on completion.' },
-      { title: 'Residents & non-residents', description: 'We know which banks favour each profile — including self-employed.' },
-      { title: 'End-to-end', description: 'From pre-approval to DLD transfer, one advisor owns your file.' },
-    ],
-    banks: [
-      { name: 'Emirates NBD' },
-      { name: 'Mashreq' },
-      { name: 'FAB' },
-      { name: 'ADCB' },
-      { name: 'DIB' },
-      { name: 'HSBC' },
-      { name: 'RAKBANK' },
-      { name: 'CBD' },
-    ],
-    testimonials: [
-      {
-        quote: 'They compared multiple banks and got us a better rate than our bank offered directly.',
-        author: 'Sara M.',
-        role: 'Resident buyer, Dubai Marina',
+        blockType: 'steps',
+        eyebrow: 'How it works',
+        heading: 'From enquiry to approval, handled for you',
+        items: [
+          {
+            title: 'Tell us your plan',
+            description: 'Share income, residency and property goals on a free call.',
+          },
+          {
+            title: 'We compare banks',
+            description:
+              'We shortlist lenders that match your profile — residents, non-residents and self-employed.',
+          },
+          {
+            title: 'We handle the file',
+            description: 'Documents, packaging and follow-ups — so approvals happen first time.',
+          },
+          {
+            title: 'You get approved',
+            description: 'Pre-approval in days, then we stay with you through offer and drawdown.',
+          },
+        ],
       },
       {
-        quote: 'As non-residents we expected it to be hard. ProCapital made the process clear and fast.',
-        author: 'James & Priya',
-        role: 'Investors, UK',
+        blockType: 'featureGrid',
+        eyebrow: 'Why ProCapital',
+        heading: 'Independent advice. Whole-of-market reach.',
+        items: [
+          {
+            title: 'Whole-of-market',
+            description: 'We are not tied to one bank — your rate comes from comparing 25+ lenders.',
+          },
+          {
+            title: 'Free to you',
+            description: 'Advice and comparison are free. We are paid by the bank on completion.',
+          },
+          {
+            title: 'Residents & non-residents',
+            description: 'We know which banks favour each profile — including self-employed.',
+          },
+          {
+            title: 'End-to-end',
+            description: 'From pre-approval to DLD transfer, one advisor owns your file.',
+          },
+        ],
       },
       {
-        quote: 'We released equity for a second property — transparent advice and no pressure.',
-        author: 'Omar K.',
-        role: 'Refinance client',
-      },
-    ],
-    faqs: [
-      {
-        question: 'Can non-residents get a mortgage in the UAE?',
-        answer:
-          'Yes. Non-residents can secure a mortgage in Dubai. Most banks require six months of bank statements, proof of income and a passport copy.',
-      },
-      {
-        question: 'How much deposit do I need for a mortgage in Dubai?',
-        answer:
-          'UAE residents typically need a 20% down payment for a first property under AED 5 million. Non-residents usually need 20 to 25%.',
+        blockType: 'banks',
+        eyebrow: 'Banks',
+        heading: 'We work across the UAE lending market',
+        items: [
+          { name: 'Emirates NBD' },
+          { name: 'Mashreq' },
+          { name: 'FAB' },
+          { name: 'ADCB' },
+          { name: 'DIB' },
+          { name: 'HSBC' },
+          { name: 'RAKBANK' },
+          { name: 'CBD' },
+        ],
       },
       {
-        question: 'Does ProCapital charge for its service?',
-        answer:
-          'Your initial consultation and mortgage comparison are free. We are paid by the bank on completion.',
+        blockType: 'testimonials',
+        eyebrow: 'Clients',
+        heading: 'What buyers say',
+        items: [
+          {
+            quote: 'They compared multiple banks and got us a better rate than our bank offered directly.',
+            author: 'Sara M.',
+            role: 'Resident buyer, Dubai Marina',
+          },
+          {
+            quote: 'As non-residents we expected it to be hard. ProCapital made the process clear and fast.',
+            author: 'James & Priya',
+            role: 'Investors, UK',
+          },
+          {
+            quote: 'We released equity for a second property — transparent advice and no pressure.',
+            author: 'Omar K.',
+            role: 'Refinance client',
+          },
+        ],
       },
       {
-        question: 'How long does mortgage pre-approval take?',
-        answer: 'With complete documents, pre-approval typically takes 3 to 5 working days.',
+        blockType: 'faq',
+        eyebrow: 'FAQ',
+        heading: 'Common questions',
+        items: [
+          {
+            question: 'Can non-residents get a mortgage in the UAE?',
+            answer:
+              'Yes. Non-residents can secure a mortgage in Dubai. Most banks require six months of bank statements, proof of income and a passport copy.',
+          },
+          {
+            question: 'How much deposit do I need for a mortgage in Dubai?',
+            answer:
+              'UAE residents typically need a 20% down payment for a first property under AED 5 million. Non-residents usually need 20 to 25%.',
+          },
+          {
+            question: 'Does ProCapital charge for its service?',
+            answer:
+              'Your initial consultation and mortgage comparison are free. We are paid by the bank on completion.',
+          },
+          {
+            question: 'How long does mortgage pre-approval take?',
+            answer: 'With complete documents, pre-approval typically takes 3 to 5 working days.',
+          },
+        ],
       },
       {
-        question: 'Can self-employed applicants get a mortgage in Dubai?',
-        answer:
-          'Yes. Banks differ in how they assess self-employed income. We know which lenders view self-employed applicants favourably.',
-      },
-      {
-        question: 'Can I release equity from my property in Dubai?',
-        answer:
-          'Yes. If you own a Dubai property with equity built up, you can refinance to release a lump sum of cash against its value.',
-      },
-    ],
-  })
-
-  await upsertPage(payload, {
-    title: 'Equity Release in Dubai',
-    slug: 'equity-release-dubai',
-    template: 'guide',
-    status: 'published',
-    metaTitle: 'Equity Release in Dubai 2026 | Cash Out of Your Property',
-    metaDescription:
-      'How equity release works in Dubai in 2026: release cash from your property without selling. LTV limits, process, timelines and costs.',
-    metaKeywords: 'equity release Dubai, cash out refinance Dubai',
-    canonicalPath: '/equity-release-dubai',
-    heroTitle: 'Equity Release in Dubai: The 2026 Guide',
-    heroLede:
-      'If your Dubai property has grown in value, that gain is real money you can access — without selling.',
-    heroUpdated: 'Last reviewed July 2026 · Written by ProCapital mortgage advisors',
-    bodyHtml: articles.equity,
-    relatedLinks: [
-      { label: 'Off-plan mortgage guide', slug: 'off-plan-mortgage-dubai' },
-      { label: 'Resident mortgage guide', slug: 'mortgage-for-residents-dubai' },
-    ],
-    faqs: [
-      {
-        question: 'Can I release equity from my property in Dubai?',
-        answer:
-          'Yes. Equity release in Dubai is usually done by refinancing into a larger mortgage and taking the difference in cash.',
-      },
-      {
-        question: 'How much equity can I release in Dubai?',
-        answer: 'Residents typically up to 70–75% LTV; non-residents around 50–60% LTV.',
-      },
-    ],
-  })
-
-  await upsertPage(payload, {
-    title: 'Mortgage for Residents in Dubai',
-    slug: 'mortgage-for-residents-dubai',
-    template: 'guide',
-    status: 'published',
-    metaTitle: 'Mortgage for Residents in Dubai 2026 | Salary, LTV & Rates',
-    metaDescription:
-      'How much salary you need, deposit, LTV and rates for a resident mortgage in Dubai in 2026.',
-    metaKeywords: 'resident mortgage Dubai, home loan Dubai',
-    canonicalPath: '/mortgage-for-residents-dubai',
-    heroTitle: 'Mortgage for Residents in Dubai: The 2026 Guide',
-    heroLede:
-      'Salary requirements, deposit, LTV caps and the step-by-step process for UAE residents buying in Dubai.',
-    heroUpdated: 'Last reviewed July 2026 · Written by ProCapital mortgage advisors',
-    bodyHtml: articles.residents,
-    relatedLinks: [
-      { label: 'Off-plan mortgage guide', slug: 'off-plan-mortgage-dubai' },
-      { label: 'Equity release guide', slug: 'equity-release-dubai' },
-    ],
-    faqs: [
-      {
-        question: 'How much salary do I need for a mortgage in Dubai?',
-        answer: 'Most banks require around AED 10,000–15,000 monthly. DBR (50%) often matters more.',
-      },
-    ],
-  })
-
-  await upsertPage(payload, {
-    title: 'Off-Plan Mortgage in Dubai',
-    slug: 'off-plan-mortgage-dubai',
-    template: 'guide',
-    status: 'published',
-    metaTitle: 'Off-Plan Mortgage in Dubai 2026 | Rules, LTV & Rates',
-    metaDescription:
-      'How off-plan mortgages work in Dubai in 2026: 50% LTV cap, milestones, rates and approved developers.',
-    metaKeywords: 'off plan mortgage Dubai',
-    canonicalPath: '/off-plan-mortgage-dubai',
-    heroTitle: 'Off-Plan Mortgage in Dubai: The 2026 Guide',
-    heroLede:
-      'The 50% LTV rule, when the bank pays, current rates and which developers are approved — plain English for 2026.',
-    heroUpdated: 'Last reviewed July 2026 · Written by ProCapital mortgage advisors',
-    bodyHtml: articles.offplan,
-    relatedLinks: [
-      { label: 'Resident mortgage guide', slug: 'mortgage-for-residents-dubai' },
-      { label: 'Equity release guide', slug: 'equity-release-dubai' },
-    ],
-    faqs: [
-      {
-        question: 'Can I get a mortgage on off-plan property in Dubai?',
-        answer: 'Yes, on approved projects, capped at 50% LTV with staged bank releases.',
+        blockType: 'ctaForm',
+        eyebrow: 'Free consultation',
+        heading: 'Get your free mortgage callback',
+        body: 'Tell us what you need — a ProCapital advisor will call you, usually within one business day.',
+        showLeadForm: true,
       },
     ],
   })
 
-  console.log('Seed complete')
+  const guidePages = [
+    {
+      title: 'Equity Release in Dubai',
+      slug: 'equity-release-dubai',
+      metaTitle: 'Equity Release in Dubai 2026 | Cash Out of Your Property',
+      metaDescription:
+        'How equity release works in Dubai in 2026: release cash from your property without selling. LTV limits, process, timelines and costs.',
+      heroTitle: 'Equity Release in Dubai: The 2026 Guide',
+      heroLede:
+        'If your Dubai property has grown in value, that gain is real money you can access — without selling.',
+      bodyHtml: articles.equity,
+      related: [
+        { label: 'Off-plan mortgage guide', url: '/off-plan-mortgage-dubai' },
+        { label: 'Resident mortgage guide', url: '/mortgage-for-residents-dubai' },
+      ],
+      faqs: [
+        {
+          question: 'Can I release equity from my property in Dubai?',
+          answer:
+            'Yes. Equity release in Dubai is usually done by refinancing into a larger mortgage and taking the difference in cash.',
+        },
+        {
+          question: 'How much equity can I release in Dubai?',
+          answer: 'Residents typically up to 70–75% LTV; non-residents around 50–60% LTV.',
+        },
+      ],
+    },
+    {
+      title: 'Mortgage for Residents in Dubai',
+      slug: 'mortgage-for-residents-dubai',
+      metaTitle: 'Mortgage for Residents in Dubai 2026 | Salary, LTV & Rates',
+      metaDescription:
+        'How much salary you need, deposit, LTV and rates for a resident mortgage in Dubai in 2026.',
+      heroTitle: 'Mortgage for Residents in Dubai: The 2026 Guide',
+      heroLede:
+        'Salary requirements, deposit, LTV caps and the step-by-step process for UAE residents buying in Dubai.',
+      bodyHtml: articles.residents,
+      related: [
+        { label: 'Off-plan mortgage guide', url: '/off-plan-mortgage-dubai' },
+        { label: 'Equity release guide', url: '/equity-release-dubai' },
+      ],
+      faqs: [
+        {
+          question: 'How much salary do I need for a mortgage in Dubai?',
+          answer: 'Most banks require around AED 10,000–15,000 monthly. DBR (50%) often matters more.',
+        },
+      ],
+    },
+    {
+      title: 'Off-Plan Mortgage in Dubai',
+      slug: 'off-plan-mortgage-dubai',
+      metaTitle: 'Off-Plan Mortgage in Dubai 2026 | Rules, LTV & Rates',
+      metaDescription:
+        'How off-plan mortgages work in Dubai in 2026: 50% LTV cap, milestones, rates and approved developers.',
+      heroTitle: 'Off-Plan Mortgage in Dubai: The 2026 Guide',
+      heroLede:
+        'The 50% LTV rule, when the bank pays, current rates and which developers are approved — plain English for 2026.',
+      bodyHtml: articles.offplan,
+      related: [
+        { label: 'Resident mortgage guide', url: '/mortgage-for-residents-dubai' },
+        { label: 'Equity release guide', url: '/equity-release-dubai' },
+      ],
+      faqs: [
+        {
+          question: 'Can I get a mortgage on off-plan property in Dubai?',
+          answer: 'Yes, on approved projects, capped at 50% LTV with staged bank releases.',
+        },
+      ],
+    },
+  ]
+
+  for (const g of guidePages) {
+    await upsertPage(payload, {
+      title: g.title,
+      slug: g.slug,
+      template: 'guide',
+      status: 'published',
+      useSiteChrome: true,
+      metaTitle: g.metaTitle,
+      metaDescription: g.metaDescription,
+      canonicalPath: '/' + g.slug,
+      sections: [
+        {
+          blockType: 'hero',
+          title: g.heroTitle,
+          lede: g.heroLede,
+          primaryCtaLabel: 'Request a free callback',
+          primaryCtaLink: '/#contact',
+          showCalculator: false,
+          showTrustPills: false,
+        },
+        { blockType: 'richContent', html: g.bodyHtml },
+        {
+          blockType: 'faq',
+          eyebrow: 'FAQ',
+          heading: 'Frequently asked questions',
+          items: g.faqs,
+        },
+        {
+          blockType: 'relatedLinks',
+          heading: 'Related guides',
+          links: g.related,
+        },
+      ],
+    })
+  }
+
+  console.log('Seed complete (section builder)')
   process.exit(0)
 }
 

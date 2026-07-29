@@ -281,3 +281,18 @@ footer{background:var(--ink);color:rgba(251,243,220,.72);padding:60px 0 30px}
   .nav-dd__btn{padding:10px 0}
   .nav-dd__menu{position:static;box-shadow:none;border:0;padding:0 0 0 12px;display:block}
 }
+
+/* CMS section builder (WordPress-style blocks) */
+.hero-media img,.svc-img,.why-img,.bank-logo,.image-block img{
+  display:block;width:100%;height:auto;border-radius:var(--radius-sm,10px);object-fit:cover
+}
+.hero-media{align-self:center}
+.svc-img{max-height:160px;margin-bottom:14px}
+.why-img{max-height:120px;margin-bottom:12px}
+.bank-logo{height:40px;width:auto;object-fit:contain}
+.image-block{padding:40px 0}
+.image-block.size-medium .wrap{max-width:720px}
+.image-block.size-full .wrap{max-width:none;padding:0}
+.image-caption{margin-top:10px;color:var(--muted,#5C6B70);font-size:14px;text-align:center}
+.cms-page .related{display:flex;flex-direction:column;gap:8px;padding:24px 0}
+.cms-page .related a{font-weight:600}

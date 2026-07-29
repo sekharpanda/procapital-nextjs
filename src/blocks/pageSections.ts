@@ -1,5 +1,19 @@
 import type { Block } from 'payload'
 
+const imageFields = [
+  {
+    name: 'image',
+    type: 'upload' as const,
+    relationTo: 'media' as const,
+    admin: { description: 'Upload from Media library' },
+  },
+  {
+    name: 'imageUrl',
+    type: 'text' as const,
+    admin: { description: 'Or paste an external image URL' },
+  },
+]
+
 export const HeroBlock: Block = {
   slug: 'hero',
   labels: { singular: 'Hero', plural: 'Hero sections' },
@@ -14,6 +28,7 @@ export const HeroBlock: Block = {
     { name: 'secondaryCtaLink', type: 'text' },
     { name: 'showCalculator', type: 'checkbox', defaultValue: false },
     { name: 'showTrustPills', type: 'checkbox', defaultValue: true },
+    ...imageFields,
   ],
 }
 
@@ -48,6 +63,7 @@ export const ServicesBlock: Block = {
         { name: 'description', type: 'textarea', required: true },
         { name: 'linkLabel', type: 'text' },
         { name: 'linkUrl', type: 'text' },
+        ...imageFields,
       ],
     },
   ],
@@ -83,6 +99,7 @@ export const FeatureGridBlock: Block = {
       fields: [
         { name: 'title', type: 'text', required: true },
         { name: 'description', type: 'textarea', required: true },
+        ...imageFields,
       ],
     },
   ],
@@ -97,7 +114,10 @@ export const BanksBlock: Block = {
     {
       name: 'items',
       type: 'array',
-      fields: [{ name: 'name', type: 'text', required: true }],
+      fields: [
+        { name: 'name', type: 'text', required: true },
+        ...imageFields,
+      ],
     },
   ],
 }
@@ -115,6 +135,7 @@ export const TestimonialsBlock: Block = {
         { name: 'quote', type: 'textarea', required: true },
         { name: 'author', type: 'text', required: true },
         { name: 'role', type: 'text' },
+        ...imageFields,
       ],
     },
   ],
@@ -148,6 +169,26 @@ export const CtaFormBlock: Block = {
   ],
 }
 
+export const ImageBlock: Block = {
+  slug: 'image',
+  labels: { singular: 'Image', plural: 'Images' },
+  fields: [
+    ...imageFields,
+    { name: 'alt', type: 'text' },
+    { name: 'caption', type: 'text' },
+    {
+      name: 'size',
+      type: 'select',
+      defaultValue: 'wide',
+      options: [
+        { label: 'Full width', value: 'full' },
+        { label: 'Wide', value: 'wide' },
+        { label: 'Medium', value: 'medium' },
+      ],
+    },
+  ],
+}
+
 export const RichContentBlock: Block = {
   slug: 'richContent',
   labels: { singular: 'Guide content (HTML)', plural: 'Guide content' },
@@ -156,7 +197,7 @@ export const RichContentBlock: Block = {
       name: 'html',
       type: 'textarea',
       required: true,
-      admin: { rows: 20, description: 'HTML for long-form guide body (exact design markup supported).' },
+      admin: { rows: 20, description: 'HTML for long-form guide body.' },
     },
   ],
 }
@@ -187,6 +228,7 @@ export const RelatedLinksBlock: Block = {
 
 export const pageSectionBlocks = [
   HeroBlock,
+  ImageBlock,
   StatsBlock,
   ServicesBlock,
   StepsBlock,

@@ -1,5 +1,11 @@
 import type { GlobalConfig } from 'payload'
 
+type U = { role?: string; approvalStatus?: string } | null
+const canEditSite = (user: U) =>
+  Boolean(user) &&
+  user?.approvalStatus === 'approved' &&
+  (user?.role === 'admin' || user?.role === 'superadmin' || user?.role === 'editor')
+
 export const Header: GlobalConfig = {
   slug: 'header',
   label: 'Header',
@@ -9,7 +15,7 @@ export const Header: GlobalConfig = {
   },
   access: {
     read: () => true,
-    update: ({ req: { user } }) => Boolean(user),
+    update: ({ req: { user } }) => canEditSite(user as U),
   },
   fields: [
     {
