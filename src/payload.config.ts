@@ -86,6 +86,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     components: {
+      actions: ['/components/admin/ViewSiteButton'],
+      beforeNavLinks: ['/components/admin/ViewSiteButton'],
       graphics: {
         Logo: '/components/admin/Logo',
         Icon: '/components/admin/Icon',
