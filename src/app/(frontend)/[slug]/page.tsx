@@ -5,8 +5,6 @@ import path from 'path'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ExactPageClient from '@/components/ExactPageClient'
-import { SiteChrome } from '@/components/cms/SiteChrome'
-import { stripExactChrome } from '@/lib/menu'
 import '@/css/guide.css'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -38,7 +36,7 @@ function loadGuide(slug: string) {
   const jsPath = path.join(dir, slug + '.js')
   if (!fs.existsSync(htmlPath)) return null
   return {
-    html: stripExactChrome(fs.readFileSync(htmlPath, 'utf8')),
+    html: fs.readFileSync(htmlPath, 'utf8'),
     script: fs.existsSync(jsPath) ? fs.readFileSync(jsPath, 'utf8') : '',
   }
 }
@@ -55,6 +53,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: meta.title,
     description: meta.description,
     alternates: { canonical: meta.canonical },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: meta.canonical,
+      siteName: 'ProCapital',
+      locale: 'en_AE',
+      type: 'article',
+    },
   }
 }
 
@@ -63,9 +69,5 @@ export default async function GuidePage({ params }: Props) {
   if (!GUIDE_META[slug]) notFound()
   const content = loadGuide(slug)
   if (!content) notFound()
-  return (
-    <SiteChrome variant="guide">
-      <ExactPageClient html={content.html} script={content.script} />
-    </SiteChrome>
-  )
+  return <ExactPageClient html={content.html} script={content.script} />
 }

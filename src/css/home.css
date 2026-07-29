@@ -267,32 +267,3 @@ footer{background:var(--ink);color:rgba(251,243,220,.72);padding:60px 0 30px}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
-
-/* CMS chrome extras */
-.cms-topbar{background:var(--maroon-deep,#0A3A46);color:#fff;font-size:13px;text-align:center;padding:8px 16px}
-.nav-dd{position:relative;display:inline-flex;align-items:center}
-.nav-dd__btn{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px}
-.nav-dd__menu{display:none;position:absolute;top:calc(100% + 10px);left:0;min-width:220px;background:#fff;border:1px solid var(--line,#E3DED0);border-radius:12px;box-shadow:var(--shadow,0 18px 50px -24px rgba(14,45,55,.28));padding:8px;z-index:40}
-.nav-dd:hover .nav-dd__menu,.nav-dd:focus-within .nav-dd__menu{display:block}
-.nav-dd__menu a{display:block;padding:10px 12px;border-radius:8px;color:var(--ink,#17242A)!important;font-weight:500}
-.nav-dd__menu a:hover{background:var(--cream,#F5F1E8);text-decoration:none}
-@media(max-width:900px){
-  .nav-dd{display:block;width:100%}
-  .nav-dd__btn{padding:10px 0}
-  .nav-dd__menu{position:static;box-shadow:none;border:0;padding:0 0 0 12px;display:block}
-}
-
-/* CMS section builder (WordPress-style blocks) */
-.hero-media img,.svc-img,.why-img,.bank-logo,.image-block img{
-  display:block;width:100%;height:auto;border-radius:var(--radius-sm,10px);object-fit:cover
-}
-.hero-media{align-self:center}
-.svc-img{max-height:160px;margin-bottom:14px}
-.why-img{max-height:120px;margin-bottom:12px}
-.bank-logo{height:40px;width:auto;object-fit:contain}
-.image-block{padding:40px 0}
-.image-block.size-medium .wrap{max-width:720px}
-.image-block.size-full .wrap{max-width:none;padding:0}
-.image-caption{margin-top:10px;color:var(--muted,#5C6B70);font-size:14px;text-align:center}
-.cms-page .related{display:flex;flex-direction:column;gap:8px;padding:24px 0}
-.cms-page .related a{font-weight:600}

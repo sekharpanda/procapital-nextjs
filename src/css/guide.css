@@ -58,20 +58,5 @@ footer{background:var(--ink);color:rgba(245,241,232,.7);padding:40px 0;margin-to
 @media(max-width:600px){.facts dl{grid-template-columns:1fr}.example .row{font-size:.92rem}.nav-back{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
-
 .devs{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 8px}
 .chip{background:var(--white);border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-weight:600;font-size:.92rem;color:#4a5a54}
-
-/* CMS chrome extras */
-.cms-topbar{background:var(--maroon-deep,#0A3A46);color:#fff;font-size:13px;text-align:center;padding:8px 16px}
-.nav-dd{position:relative;display:inline-flex;align-items:center}
-.nav-dd__btn{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:4px}
-.nav-dd__menu{display:none;position:absolute;top:calc(100% + 10px);left:0;min-width:220px;background:#fff;border:1px solid var(--line,#E3DED0);border-radius:12px;box-shadow:var(--shadow,0 18px 50px -24px rgba(14,45,55,.28));padding:8px;z-index:40}
-.nav-dd:hover .nav-dd__menu,.nav-dd:focus-within .nav-dd__menu{display:block}
-.nav-dd__menu a{display:block;padding:10px 12px;border-radius:8px;color:var(--ink,#17242A)!important;font-weight:500}
-.nav-dd__menu a:hover{background:var(--cream,#F5F1E8);text-decoration:none}
-@media(max-width:900px){
-  .nav-dd{display:block;width:100%}
-  .nav-dd__btn{padding:10px 0}
-  .nav-dd__menu{position:static;box-shadow:none;border:0;padding:0 0 0 12px;display:block}
-}

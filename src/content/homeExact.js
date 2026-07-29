@@ -1,14 +1,15 @@
 
 // Year
-var __yr=document.getElementById('yr'); if(__yr) __yr.textContent=new Date().getFullYear();
+document.getElementById('yr').textContent=new Date().getFullYear();
 
 // Header scroll state
 var hdr=document.getElementById('hdr');
-if(hdr){addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>20)});}
+addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>20)});
 
 // Mobile menu
 var burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
-if(burger&&navLinks){burger.addEventListener('click',function(){navLinks.classList.toggle('open')});navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){navLinks.classList.remove('open')})});}
+burger.addEventListener('click',function(){navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){navLinks.classList.remove('open')})});
 
 // Reveal on scroll
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
