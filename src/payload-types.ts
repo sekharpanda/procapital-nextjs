@@ -130,7 +130,7 @@ export interface UserAuthOperations {
   };
 }
 /**
- * Edit like WordPress: open a page → Sections tab → Add Section blocks (Hero, Image, Services, FAQ…). Reorder blocks, then Save. Changes appear on the live site.
+ * Add: click "+ Add Section". Edit text/images inside. Remove: click the three-dots (⋮) on the right of a section → Remove, then Save.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "pages".
@@ -152,7 +152,7 @@ export interface Page {
    */
   useSiteChrome?: boolean | null;
   /**
-   * Hero, Image, Services, Steps, FAQ, Form, Custom HTML, etc. Upload images in Media first, or paste an image URL on the block.
+   * Add: click "+ Add Section". Edit text/images inside. Remove: click the three-dots menu on the right of a section → Remove, then Save.
    */
   sections?:
     | (
@@ -171,11 +171,11 @@ export interface Page {
             showCalculator?: boolean | null;
             showTrustPills?: boolean | null;
             /**
-             * Upload from Media library
+             * Choose from Media library (upload new there first if needed).
              */
             image?: (number | null) | Media;
             /**
-             * Or paste an external image URL
+             * Use this if the image is already hosted online.
              */
             imageUrl?: string | null;
             id?: string | null;
@@ -184,11 +184,11 @@ export interface Page {
           }
         | {
             /**
-             * Upload from Media library
+             * Choose from Media library (upload new there first if needed).
              */
             image?: (number | null) | Media;
             /**
-             * Or paste an external image URL
+             * Use this if the image is already hosted online.
              */
             imageUrl?: string | null;
             alt?: string | null;
@@ -199,6 +199,9 @@ export interface Page {
             blockType: 'image';
           }
         | {
+            /**
+             * Click "Add Stat" to add another number.
+             */
             items?:
               | {
                   value: string;
@@ -214,6 +217,9 @@ export interface Page {
             eyebrow?: string | null;
             heading?: string | null;
             intro?: string | null;
+            /**
+             * Click "Add Service card" below. Each card can have text + image.
+             */
             items?:
               | {
                   title: string;
@@ -221,11 +227,11 @@ export interface Page {
                   linkLabel?: string | null;
                   linkUrl?: string | null;
                   /**
-                   * Upload from Media library
+                   * Choose from Media library (upload new there first if needed).
                    */
                   image?: (number | null) | Media;
                   /**
-                   * Or paste an external image URL
+                   * Use this if the image is already hosted online.
                    */
                   imageUrl?: string | null;
                   id?: string | null;
@@ -239,6 +245,9 @@ export interface Page {
             eyebrow?: string | null;
             heading?: string | null;
             intro?: string | null;
+            /**
+             * Click "Add Step" to add another step.
+             */
             items?:
               | {
                   title: string;
@@ -253,16 +262,19 @@ export interface Page {
         | {
             eyebrow?: string | null;
             heading?: string | null;
+            /**
+             * Click "Add Feature". Each feature can include an image.
+             */
             items?:
               | {
                   title: string;
                   description: string;
                   /**
-                   * Upload from Media library
+                   * Choose from Media library (upload new there first if needed).
                    */
                   image?: (number | null) | Media;
                   /**
-                   * Or paste an external image URL
+                   * Use this if the image is already hosted online.
                    */
                   imageUrl?: string | null;
                   id?: string | null;
@@ -275,15 +287,18 @@ export interface Page {
         | {
             eyebrow?: string | null;
             heading?: string | null;
+            /**
+             * Click "Add Bank". Add a logo image or leave as text name.
+             */
             items?:
               | {
                   name: string;
                   /**
-                   * Upload from Media library
+                   * Choose from Media library (upload new there first if needed).
                    */
                   image?: (number | null) | Media;
                   /**
-                   * Or paste an external image URL
+                   * Use this if the image is already hosted online.
                    */
                   imageUrl?: string | null;
                   id?: string | null;
@@ -296,17 +311,20 @@ export interface Page {
         | {
             eyebrow?: string | null;
             heading?: string | null;
+            /**
+             * Click "Add Testimonial". Optional photo via Change image.
+             */
             items?:
               | {
                   quote: string;
                   author: string;
                   role?: string | null;
                   /**
-                   * Upload from Media library
+                   * Choose from Media library (upload new there first if needed).
                    */
                   image?: (number | null) | Media;
                   /**
-                   * Or paste an external image URL
+                   * Use this if the image is already hosted online.
                    */
                   imageUrl?: string | null;
                   id?: string | null;
@@ -319,6 +337,9 @@ export interface Page {
         | {
             eyebrow?: string | null;
             heading?: string | null;
+            /**
+             * Click "Add Question" to add another FAQ.
+             */
             items?:
               | {
                   question: string;
@@ -356,6 +377,9 @@ export interface Page {
           }
         | {
             heading?: string | null;
+            /**
+             * Click "Add Link" to add another related guide.
+             */
             links?:
               | {
                   label: string;
