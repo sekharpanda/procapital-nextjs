@@ -33,6 +33,9 @@ var priceInput=document.getElementById('priceInput'),downInput=document.getEleme
     downAmountEl=document.getElementById('downAmount'),
     monthly=document.getElementById('monthly'),loanNote=document.getElementById('loanNote');
 
+// Exact property price can be any positive amount (not limited to slider min/max/step)
+var priceExact=+price.value;
+
 function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
 function fmtNum(n){return Math.round(n).toLocaleString('en-US')}
 function parseNum(str){
@@ -46,9 +49,13 @@ function snap(n,step){
   if(!step||step<=0)return n;
   return Math.round(n/step)*step;
 }
+function syncPriceSlider(n){
+  var min=+price.min, max=+price.max;
+  price.value=String(clamp(n,min,max));
+}
 
 function calc(fromSlider){
-  var p=+price.value, dpc=+down.value, r=+rate.value, y=+years.value;
+  var p=priceExact, dpc=+down.value, r=+rate.value, y=+years.value;
   var dpAmount=p*dpc/100;
   var loan=p-dpAmount;
   var mr=r/100/12, n=y*12;
@@ -82,13 +89,32 @@ function applyTyped(input,slider,opts){
   }
 }
 
-[price,down,rate,years].forEach(function(el){
+function applyTypedPrice(opts){
+  var raw=parseNum(priceInput.value);
+  if(isNaN(raw))return;
+  // Any whole-AED amount >= 1 — no slider min/max/step clamp
+  var next=Math.max(1, Math.round(raw));
+  priceExact=next;
+  syncPriceSlider(next);
+  if(opts&&opts.commit){
+    priceInput.value=fmtNum(next);
+    calc(true);
+  }else{
+    calc(false);
+  }
+}
+
+price.addEventListener('input',function(){
+  priceExact=+price.value;
+  calc(true);
+});
+[down,rate,years].forEach(function(el){
   el.addEventListener('input',function(){calc(true)});
 });
 
-priceInput.addEventListener('input',function(){applyTyped(priceInput,price,{format:'money'})});
-priceInput.addEventListener('change',function(){applyTyped(priceInput,price,{format:'money',commit:true})});
-priceInput.addEventListener('blur',function(){applyTyped(priceInput,price,{format:'money',commit:true})});
+priceInput.addEventListener('input',function(){applyTypedPrice({})});
+priceInput.addEventListener('change',function(){applyTypedPrice({commit:true})});
+priceInput.addEventListener('blur',function(){applyTypedPrice({commit:true})});
 
 downInput.addEventListener('input',function(){applyTyped(downInput,down,{})});
 downInput.addEventListener('change',function(){applyTyped(downInput,down,{commit:true})});

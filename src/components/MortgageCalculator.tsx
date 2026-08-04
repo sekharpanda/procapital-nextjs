@@ -60,10 +60,11 @@ export function MortgageCalculator() {
               onChange={(e) => {
                 setPriceText(e.target.value)
                 const n = parseNum(e.target.value)
-                if (!isNaN(n) && n >= 300000 && n <= 10000000) setPrice(n)
+                if (!isNaN(n) && n >= 1) setPrice(Math.round(n))
               }}
               onBlur={() => {
-                const next = clamp(parseNum(priceText) || price, 300000, 10000000)
+                const parsed = parseNum(priceText)
+                const next = !isNaN(parsed) && parsed >= 1 ? Math.round(parsed) : price
                 setPrice(next)
                 setPriceText(fmtNum(next))
               }}
@@ -73,10 +74,10 @@ export function MortgageCalculator() {
         <input
           id="price"
           type="range"
-          min={300000}
-          max={10000000}
-          step={50000}
-          value={price}
+          min={100000}
+          max={50000000}
+          step={10000}
+          value={clamp(price, 100000, 50000000)}
           onChange={(e) => {
             const next = +e.target.value
             setPrice(next)
