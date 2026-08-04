@@ -55,6 +55,11 @@ article strong{color:var(--ink)}.lead-para{font-size:1.1rem}
 .related h3{font-size:1.1rem;margin-bottom:12px}.related a{display:inline-block;margin:0 16px 8px 0;font-weight:500}
 .disclaimer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);margin-top:30px;padding:20px 0 0;line-height:1.6}
 footer{background:var(--ink);color:rgba(245,241,232,.7);padding:40px 0;margin-top:40px;text-align:center;font-size:.9rem}footer a{color:var(--gold-soft)}
+footer .foot-logo{
+  filter: grayscale(1) brightness(2.8) contrast(1.2);
+  mix-blend-mode: lighten;
+  background: transparent;
+}
 @media(max-width:600px){.facts dl{grid-template-columns:1fr}.example .row{font-size:.92rem}.nav-back{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 

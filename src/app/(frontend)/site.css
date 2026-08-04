@@ -84,12 +84,19 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -16px rgba(58,20,
 .foot-brand .brand{margin-bottom:14px}
 .foot-brand .brand img,
 .foot-brand .foot-logo{
-  height:58px;
+  height:52px;
   width:auto;
   max-width:168px;
   display:block;
   object-fit:contain;
   object-position:left center;
+  background:transparent;
+  filter: grayscale(1) brightness(2.8) contrast(1.2);
+  mix-blend-mode: lighten;
+}
+footer .foot-logo{
+  filter: grayscale(1) brightness(2.8) contrast(1.2);
+  mix-blend-mode: lighten;
 }
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{font-size:.94rem;font-weight:500;color:var(--ink);opacity:.82;transition:opacity .2s}
