@@ -47,14 +47,15 @@ export function MortgageCalculator() {
 
       <div className="field">
         <div className="field-top">
-          <label htmlFor="price">Property price</label>
+          <label htmlFor="priceInput">Property price</label>
           <div className="val-edit">
             <span className="val-affix">AED</span>
             <input
               id="priceInput"
-              className="val-input"
+              className="val-input val-input--price"
               type="text"
               inputMode="numeric"
+              autoComplete="off"
               value={priceText}
               aria-label="Property price in AED"
               onChange={(e) => {
@@ -68,6 +69,7 @@ export function MortgageCalculator() {
                 setPrice(next)
                 setPriceText(fmtNum(next))
               }}
+              onFocus={(e) => e.currentTarget.select()}
             />
           </div>
         </div>
