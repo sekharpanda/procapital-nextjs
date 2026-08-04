@@ -1,24 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 140" role="img" aria-label="PRO capital">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 118" width="260" height="118" role="img" aria-label="PRO capital">
   <title>PRO capital</title>
-  <!-- White wordmark for dark backgrounds. Stacked Didone/stencil style. -->
+  <!-- Transparent background — white wordmark only for dark footers -->
   <g fill="#ffffff">
-    <!-- PRO -->
     <text
-      x="8"
-      y="62"
+      x="0"
+      y="52"
       font-family="Georgia, 'Times New Roman', Times, serif"
-      font-size="64"
+      font-size="56"
       font-weight="700"
-      letter-spacing="-2"
+      letter-spacing="-1.8"
     >PRO</text>
-    <!-- capital -->
     <text
-      x="28"
-      y="122"
+      x="18"
+      y="108"
       font-family="Georgia, 'Times New Roman', Times, serif"
-      font-size="52"
+      font-size="46"
       font-weight="600"
-      letter-spacing="-1.5"
+      letter-spacing="-1.2"
     >capital</text>
   </g>
 </svg>

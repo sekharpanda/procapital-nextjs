@@ -91,6 +91,7 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -16px rgba(58,20,
   display:block;
   object-fit:contain;
   object-position:left center;
+  background:transparent;
 }
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{font-size:.94rem;font-weight:500;color:var(--ink);opacity:.82;transition:opacity .2s}
