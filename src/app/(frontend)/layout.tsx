@@ -1,4 +1,5 @@
 import React from 'react'
+import LeadModal from '@/components/LeadModal'
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://procapital.ae'),
@@ -17,7 +18,10 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <LeadModal />
+      </body>
     </html>
   )
 }
