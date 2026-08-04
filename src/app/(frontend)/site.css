@@ -180,9 +180,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 /* ============ Banks ============ */
 .banks{background:linear-gradient(180deg,var(--surface),var(--cream))}
-.bank-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:900px;margin:0 auto}
-.bank-chip{background:var(--white);border:1px solid var(--line);border-radius:100px;padding:12px 24px;font-weight:600;font-size:.95rem;color:#4a4236;transition:transform .2s,border-color .2s}
-.bank-chip:hover{transform:translateY(-3px);border-color:var(--gold)}
+.bank-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:980px;margin:0 auto}
+.bank-chip{display:flex;align-items:center;justify-content:center;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 18px;min-width:148px;min-height:76px;box-sizing:border-box;transition:transform .2s,border-color .2s,box-shadow .2s}
+.bank-chip img{display:block;max-height:52px;max-width:132px;width:auto;height:auto;object-fit:contain}
+.bank-chip:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 20px rgba(26,43,61,.06)}
+.bank-chip--more{font-weight:600;font-size:.95rem;color:#4a4236;min-width:148px}
 
 /* ============ Testimonials ============ */
 .testi{background:var(--ink);color:var(--cream)}

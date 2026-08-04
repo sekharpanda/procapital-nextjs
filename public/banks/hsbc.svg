@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" role="img" aria-label="HSBC">
+  <g transform="translate(10,2)">
+    <polygon fill="#DB0011" points="50,0 82,18.5 50,37 18,18.5"/>
+    <polygon fill="#DB0011" points="50,55 82,73.5 50,92 18,73.5"/>
+    <polygon fill="#DB0011" points="4,37 18,28.75 18,45.25"/>
+    <polygon fill="#DB0011" points="96,37 82,28.75 82,45.25"/>
+    <polygon fill="#FFFFFF" points="18,28.75 82,28.75 50,46"/>
+    <polygon fill="#FFFFFF" points="18,45.25 82,45.25 50,46"/>
+  </g>
+  <text x="60" y="128" text-anchor="middle" fill="#111111" font-family="Georgia, 'Times New Roman', Times, serif" font-size="24" font-weight="700">HSBC</text>
+</svg>

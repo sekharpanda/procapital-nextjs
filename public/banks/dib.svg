@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 100" role="img" aria-label="Dubai Islamic Bank">
+  <defs>
+    <radialGradient id="g" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#3CB371"/>
+      <stop offset="100%" stop-color="#0B5C3B"/>
+    </radialGradient>
+  </defs>
+  <circle cx="48" cy="50" r="36" fill="url(#g)"/>
+  <g stroke="#E8D5A3" stroke-width="1.2" fill="none" opacity=".9">
+    <path d="M20 50h56M48 18v64M28 28c12 8 28 8 40 0M28 72c12-8 28-8 40 0M24 40c16 6 32 6 48 0M24 60c16-6 32-6 48 0"/>
+  </g>
+  <path fill="#6B1E2A" d="M22 44l6-4 6 4-2 7h-8z"/>
+  <text x="100" y="42" fill="#0B5C3B" font-family="Arial, sans-serif" font-size="16" font-weight="600">/(J 'D%3D'EJ</text>
+  <text x="100" y="78" fill="#0B5C3B" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700">DIB</text>
+</svg>
