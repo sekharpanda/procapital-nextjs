@@ -183,6 +183,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .bank-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:1040px;margin:0 auto}
 .bank-chip{display:flex;align-items:center;justify-content:center;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 20px;min-width:168px;min-height:90px;box-sizing:border-box;transition:transform .2s,border-color .2s,box-shadow .2s}
 .bank-chip img{display:block;max-height:62px;max-width:156px;width:auto;height:auto;object-fit:contain}
+.bank-chip--lg{overflow:hidden}
+.bank-chip--lg img{max-height:100px;max-width:210px;transform:scale(1.55)}
 .bank-chip:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 20px rgba(26,43,61,.06)}
 .bank-chip--more{font-weight:600;font-size:.95rem;color:#4a4236;min-width:168px}
 
