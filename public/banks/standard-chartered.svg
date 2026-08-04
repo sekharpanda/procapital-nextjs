@@ -1,13 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 90" role="img" aria-label="Standard Chartered">
-  <text x="8" y="38" fill="#0A6EB4" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">Standard</text>
-  <text x="8" y="72" fill="#6BBF3A" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">Chartered</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" role="img" aria-label="Standard Chartered">
+  <text x="4" y="34" fill="#0A6EB4" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">Standard</text>
+  <text x="4" y="64" fill="#6BBF3A" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">Chartered</text>
   <defs>
-    <linearGradient id="sc" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="sc2" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0A6EB4"/>
-      <stop offset="55%" stop-color="#2F9B6A"/>
       <stop offset="100%" stop-color="#6BBF3A"/>
     </linearGradient>
   </defs>
-  <path fill="url(#sc)" d="M230 18c18 8 28 28 22 48-4 12-16 20-28 18-10-2-14-12-10-22 6-14 20-18 28-10-8-18-4-34 0-34zm-8 22c-10 4-16 14-12 24 2 6 8 8 12 6 8-4 10-14 4-22-2-4-4-6-4-8z"/>
-  <path fill="url(#sc)" d="M248 28c14 10 20 30 12 46-6 12-20 16-30 10 12 2 22-6 26-16 6-14 0-28-8-40z" opacity=".85"/>
+  <path fill="url(#sc2)" d="M220 14c16 8 26 26 20 44-4 11-15 18-26 16 10 2 20-5 24-15 5-13-1-27-8-37-2-3-6-6-10-8z"/>
+  <path fill="url(#sc2)" d="M232 28c10 10 14 26 8 38-5 10-16 14-24 9 10 1 18-5 21-13 4-11 0-22-5-34z" opacity=".85"/>
 </svg>

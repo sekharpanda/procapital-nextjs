@@ -1,19 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="ADIB">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" role="img" aria-label="ADIB">
   <defs>
-    <radialGradient id="adib" cx="55%" cy="35%" r="65%">
+    <radialGradient id="adib2" cx="55%" cy="35%" r="65%">
       <stop offset="0%" stop-color="#7EC8E3"/>
       <stop offset="55%" stop-color="#1E4F8C"/>
       <stop offset="100%" stop-color="#0B2C5A"/>
     </radialGradient>
   </defs>
-  <circle cx="100" cy="58" r="42" fill="none" stroke="#C8CDD2" stroke-width="2"/>
-  <circle cx="100" cy="58" r="40" fill="url(#adib)"/>
-  <g fill="#fff" opacity=".95">
-    <polygon points="118,28 122,42 118,40 114,42"/>
-    <polygon points="128,34 130,48 124,44"/>
-    <polygon points="134,44 132,56 126,50"/>
-    <polygon points="112,26 118,38 110,36"/>
+  <circle cx="80" cy="52" r="38" fill="none" stroke="#C8CDD2" stroke-width="2"/>
+  <circle cx="80" cy="52" r="36" fill="url(#adib2)"/>
+  <g fill="#fff">
+    <polygon points="96,26 100,40 96,38 92,40"/>
+    <polygon points="106,32 108,46 102,42"/>
+    <polygon points="112,42 110,54 104,48"/>
   </g>
-  <text x="100" y="122" text-anchor="middle" fill="#0B2C5A" font-family="Arial, sans-serif" font-size="16" font-weight="600">E51A #(H8(J 'D%3D'EJ</text>
-  <text x="100" y="150" text-anchor="middle" fill="#0B2C5A" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">ADIB</text>
+  <text x="80" y="122" text-anchor="middle" fill="#0B2C5A" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">ADIB</text>
 </svg>
