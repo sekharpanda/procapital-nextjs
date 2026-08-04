@@ -82,7 +82,16 @@ header.scrolled{border-color:var(--line);box-shadow:0 6px 20px -16px rgba(58,20,
 .brand .pro{color:var(--maroon)}
 .brand .cap{color:var(--ink)}
 .brand img{height:52px;width:auto;display:block}
-.foot-brand .brand img{height:56px}
+.foot-brand .brand{margin-bottom:14px}
+.foot-brand .brand img,
+.foot-brand .foot-logo{
+  height:58px;
+  width:auto;
+  max-width:168px;
+  display:block;
+  object-fit:contain;
+  object-position:left center;
+}
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{font-size:.94rem;font-weight:500;color:var(--ink);opacity:.82;transition:opacity .2s}
 .nav-links a:hover{opacity:1}
@@ -225,7 +234,7 @@ footer{background:var(--ink);color:rgba(251,243,220,.72);padding:60px 0 30px}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:40px}
 .foot-brand .brand{font-size:1.7rem;margin-bottom:14px}
 .foot-brand .cap{color:#fff}
-.foot-brand p{font-size:.9rem;max-width:280px}
+.foot-brand p{font-size:.9rem;max-width:280px;margin-top:4px}
 .foot-col h4{font-family:var(--ff-body);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:16px}
 .foot-col a,.foot-col p{display:block;font-size:.92rem;margin-bottom:10px;color:rgba(251,243,220,.72);transition:color .2s}
 .foot-col a:hover{color:#fff}
