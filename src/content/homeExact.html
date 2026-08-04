@@ -75,19 +75,45 @@
       <p class="sub">Estimate your monthly repayment in seconds.</p>
 
       <div class="field">
-        <div class="field-top"><label for="price">Property price</label><span class="val" id="priceVal">AED 2,000,000</span></div>
+        <div class="field-top">
+          <label for="price">Property price</label>
+          <div class="val-edit">
+            <span class="val-affix">AED</span>
+            <input type="text" inputmode="numeric" class="val-input" id="priceInput" value="2,000,000" aria-label="Property price in AED">
+          </div>
+        </div>
         <input type="range" id="price" min="500000" max="20000000" step="50000" value="2000000">
       </div>
       <div class="field">
-        <div class="field-top"><label for="down">Down payment</label><span class="val" id="downVal">20% · AED 400,000</span></div>
+        <div class="field-top">
+          <label for="down">Down payment</label>
+          <div class="val-edit">
+            <input type="text" inputmode="decimal" class="val-input val-input--short" id="downInput" value="20" aria-label="Down payment percent">
+            <span class="val-affix">%</span>
+            <span class="val-sep">·</span>
+            <span class="val-affix" id="downAmount">AED 400,000</span>
+          </div>
+        </div>
         <input type="range" id="down" min="15" max="50" step="1" value="20">
       </div>
       <div class="field">
-        <div class="field-top"><label for="rate">Interest rate</label><span class="val" id="rateVal">3.95%</span></div>
+        <div class="field-top">
+          <label for="rate">Interest rate</label>
+          <div class="val-edit">
+            <input type="text" inputmode="decimal" class="val-input val-input--short" id="rateInput" value="3.95" aria-label="Interest rate percent">
+            <span class="val-affix">%</span>
+          </div>
+        </div>
         <input type="range" id="rate" min="2.5" max="7" step="0.05" value="3.95">
       </div>
       <div class="field">
-        <div class="field-top"><label for="years">Loan term</label><span class="val" id="yearsVal">25 years</span></div>
+        <div class="field-top">
+          <label for="years">Loan term</label>
+          <div class="val-edit">
+            <input type="text" inputmode="numeric" class="val-input val-input--short" id="yearsInput" value="25" aria-label="Loan term in years">
+            <span class="val-affix">years</span>
+          </div>
+        </div>
         <input type="range" id="years" min="5" max="25" step="1" value="25">
       </div>
 

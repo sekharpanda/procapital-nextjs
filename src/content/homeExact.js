@@ -28,26 +28,87 @@ document.querySelectorAll('.faq-item').forEach(function(item){
 // ===== Mortgage calculator =====
 var price=document.getElementById('price'),down=document.getElementById('down'),
     rate=document.getElementById('rate'),years=document.getElementById('years');
-var priceVal=document.getElementById('priceVal'),downVal=document.getElementById('downVal'),
-    rateVal=document.getElementById('rateVal'),yearsVal=document.getElementById('yearsVal'),
+var priceInput=document.getElementById('priceInput'),downInput=document.getElementById('downInput'),
+    rateInput=document.getElementById('rateInput'),yearsInput=document.getElementById('yearsInput'),
+    downAmountEl=document.getElementById('downAmount'),
     monthly=document.getElementById('monthly'),loanNote=document.getElementById('loanNote');
 
 function fmt(n){return 'AED '+Math.round(n).toLocaleString('en-US')}
-function calc(){
+function fmtNum(n){return Math.round(n).toLocaleString('en-US')}
+function parseNum(str){
+  if(str==null)return NaN;
+  var cleaned=String(str).replace(/[^\d.]/g,'');
+  if(!cleaned)return NaN;
+  return parseFloat(cleaned);
+}
+function clamp(n,min,max){return Math.min(max,Math.max(min,n))}
+function snap(n,step){
+  if(!step||step<=0)return n;
+  return Math.round(n/step)*step;
+}
+
+function calc(fromSlider){
   var p=+price.value, dpc=+down.value, r=+rate.value, y=+years.value;
   var dpAmount=p*dpc/100;
   var loan=p-dpAmount;
   var mr=r/100/12, n=y*12;
   var m = mr===0 ? loan/n : loan*mr*Math.pow(1+mr,n)/(Math.pow(1+mr,n)-1);
-  priceVal.textContent=fmt(p);
-  downVal.textContent=dpc+'% · '+fmt(dpAmount);
-  rateVal.textContent=r.toFixed(2)+'%';
-  yearsVal.textContent=y+' years';
+  if(fromSlider!==false){
+    if(document.activeElement!==priceInput) priceInput.value=fmtNum(p);
+    if(document.activeElement!==downInput) downInput.value=String(dpc);
+    if(document.activeElement!==rateInput) rateInput.value=Number(r).toFixed(2);
+    if(document.activeElement!==yearsInput) yearsInput.value=String(y);
+  }
+  downAmountEl.textContent=fmt(dpAmount);
   monthly.textContent=fmt(m);
   loanNote.textContent='Loan amount '+fmt(loan)+' over '+y+' years';
 }
-[price,down,rate,years].forEach(function(el){el.addEventListener('input',calc)});
-calc();
+
+function applyTyped(input,slider,opts){
+  var raw=parseNum(input.value);
+  if(isNaN(raw))return;
+  var min=+slider.min, max=+slider.max, step=+slider.step||1;
+  var next=clamp(snap(raw,step),min,max);
+  // Allow intermediate typing; only snap/clamp hard on blur
+  if(opts&&opts.commit){
+    slider.value=String(next);
+    if(opts.format==='money') input.value=fmtNum(next);
+    else if(opts.format==='rate') input.value=Number(next).toFixed(2);
+    else input.value=String(next);
+    calc(true);
+  }else if(raw>=min&&raw<=max){
+    slider.value=String(clamp(raw,min,max));
+    calc(false);
+  }
+}
+
+[price,down,rate,years].forEach(function(el){
+  el.addEventListener('input',function(){calc(true)});
+});
+
+priceInput.addEventListener('input',function(){applyTyped(priceInput,price,{format:'money'})});
+priceInput.addEventListener('change',function(){applyTyped(priceInput,price,{format:'money',commit:true})});
+priceInput.addEventListener('blur',function(){applyTyped(priceInput,price,{format:'money',commit:true})});
+
+downInput.addEventListener('input',function(){applyTyped(downInput,down,{})});
+downInput.addEventListener('change',function(){applyTyped(downInput,down,{commit:true})});
+downInput.addEventListener('blur',function(){applyTyped(downInput,down,{commit:true})});
+
+rateInput.addEventListener('input',function(){applyTyped(rateInput,rate,{format:'rate'})});
+rateInput.addEventListener('change',function(){applyTyped(rateInput,rate,{format:'rate',commit:true})});
+rateInput.addEventListener('blur',function(){applyTyped(rateInput,rate,{format:'rate',commit:true})});
+
+yearsInput.addEventListener('input',function(){applyTyped(yearsInput,years,{})});
+yearsInput.addEventListener('change',function(){applyTyped(yearsInput,years,{commit:true})});
+yearsInput.addEventListener('blur',function(){applyTyped(yearsInput,years,{commit:true})});
+
+;[priceInput,downInput,rateInput,yearsInput].forEach(function(el){
+  el.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){e.preventDefault();el.blur()}
+  });
+});
+
+calc(true);
 
 // ===== Lead form =====
 document.getElementById('leadForm').addEventListener('submit',function(e){
