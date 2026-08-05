@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   description:
     'Independent mortgage broker in Dubai. Compare home loan & equity release rates from 25+ UAE banks and get pre-approved in days. Free, unbiased advice.',
   alternates: { canonical: 'https://procapital.ae/' },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Mortgage Broker in Dubai | Home Loans & Equity Release',
+    description:
+      'Independent mortgage broker in Dubai. Compare home loan & equity release rates from 25+ UAE banks and get pre-approved in days. Free, unbiased advice.',
+    url: 'https://procapital.ae/',
+    siteName: 'ProCapital',
+    locale: 'en_AE',
+    type: 'website',
+  },
 }
 
 export default async function HomePage() {
