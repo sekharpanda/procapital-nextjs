@@ -2,11 +2,20 @@ import React from 'react'
 import type { Metadata } from 'next'
 import LeadModal from '@/components/LeadModal'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://procapital.ae'
+const FALLBACK_SITE_URL = 'https://procapital.ae'
+
+function metadataBase() {
+  try {
+    return new URL(process.env.NEXT_PUBLIC_SITE_URL || FALLBACK_SITE_URL)
+  } catch {
+    return new URL(FALLBACK_SITE_URL)
+  }
+}
+
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: metadataBase(),
   title: {
     default: 'Mortgage Broker in Dubai | Home Loans & Equity Release',
     template: '%s | ProCapital',
