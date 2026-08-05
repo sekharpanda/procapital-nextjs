@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/googleb02c6c602345eaad.html',
-        destination: '/api/google-site-verification',
+        destination: '/gsc-verify',
       },
     ]
   },
